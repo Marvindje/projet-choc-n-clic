@@ -1,1 +1,1 @@
-# projet-choc-n-chic
+# projet-choc-n-clic
