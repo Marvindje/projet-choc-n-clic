@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+header {
+  height: 10%;
+}
+
+main {
+  height: 90%;
+}
+
+body {
+  background-color: lightgrey;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.choco-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.choco {
+  background-color: aqua;
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+}
+
+.disable {
+  display: none;
+}
