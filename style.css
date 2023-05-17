@@ -114,6 +114,7 @@ navbar .help:hover {
   font-family: var(--main-title);
   font-size: 2em;
   color: var(--yellow-choco);
+  margin-bottom: 40px;
 }
 
 .window .choco {
