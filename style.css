@@ -105,15 +105,22 @@ navbar .help:hover {
 .window .bakery {
   font-family: var(--main-title);
   font-size: 3em;
+  color: var(--text-color);
   width: 100vw;
   text-align: center;
   margin: 40px auto 20px auto;
+  cursor: pointer;
+}
+
+.window .bakery:hover {
+  color: var(--yellow-choco);
+  text-shadow: var(--yellow-choco) 0px 0px 44px;
 }
 
 .score {
   font-family: var(--main-title);
   font-size: 2em;
-  color: var(--yellow-choco);
+  color: var(--dark-yellow-choco);
   margin-bottom: 40px;
 }
 
@@ -126,6 +133,7 @@ navbar .help:hover {
   border-radius: 50%;
   width: 130px;
   height: 130px;
+  cursor: pointer;
 }
 
 /*************** SECTION SKILLS ***********************/
