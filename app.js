@@ -7,7 +7,7 @@ let count = 0;
 
 // Actualise le score toutes les 50 millisecondes
 setInterval(function () {
-  score.innerHTML = `${count} chocos`;
+  score.innerHTML = `${count} Chocos`;
 }, 50);
 
 chocoButton.addEventListener("click", function () {
