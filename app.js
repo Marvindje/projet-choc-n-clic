@@ -8,7 +8,7 @@ const upgrade1 = document.querySelector("#upgrade1");
 const upgrade2 = document.querySelector("#upgrade2");
 const upgrade3 = document.querySelector("#upgrade3");
 
-let score = 10000;
+let score = 0;
 
 let clicValue = 1;
 let updatePrice = 10;
@@ -76,7 +76,7 @@ function worker1Name() {
 
 function worker1Works() {
   score = score - worker1Price;
-  worker1Price = worker1Price * 1.5;
+  worker1Price = worker1Price * 2;
   worker1Number = worker1Number + 1;
   worker1Name();
   setInterval(() => {
@@ -109,7 +109,7 @@ function worker2Enabler() {
 
 function worker2Works() {
   score = score - worker2Price;
-  worker2Price = worker2Price * 1.5;
+  worker2Price = worker2Price * 2;
   worker2Number = worker2Number + 1;
   worker2Name();
   setInterval(() => {
@@ -127,7 +127,7 @@ function worker3Name() {
 
 function worker3Works() {
   score = score - worker3Price;
-  worker3Price = worker3Price * 1.5;
+  worker3Price = worker3Price * 2;
   worker3Number = worker3Number + 1;
   worker3Name();
   setInterval(() => {
@@ -156,7 +156,7 @@ function upgradeWorker1() {
   worker1Value += 1;
   upgrade1Price = upgrade1Price * 2;
   refreshValue();
-  compteurScore();
+  //compteurScore();
 }
 
 function upgrade1Enabler() {
@@ -209,9 +209,7 @@ function upgrade3Enabler() {
 }
 
 //----------------------------------------------------------------------------------------Fin upgrade 3
-setInterval(() => {
-  compteur.value = score;
-}, 50);
+setInterval(() => compteurScore(), 50);
 
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
 function EnablerAll() {
@@ -226,7 +224,6 @@ function EnablerAll() {
 //------------------------------------------------------------------------------Check toute les value des boutons
 function refreshValue() {
   multiplicateurValue();
-  compteurScore();
   worker1Name();
   worker2Name();
   worker3Name();
@@ -243,7 +240,6 @@ worker3Name();
 upgrade1Name();
 upgrade2Name();
 upgrade3Name();
-compteurScore();
 
 //--------------------------------------------------------------------------------------Event
 clic.addEventListener("click", scoreIncrease);
