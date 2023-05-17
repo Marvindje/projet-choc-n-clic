@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 100vw;
+    min-height: 100vh;
+    background: var(--background-color);
+    font-family: var(--text);
+    color: var(--text-color);
+    font-size: 100%;
+}
+
+:root {
+    --main-color: #2E294E;
+    --yellow-choco: #F5A72D;
+    --dark-yellow-choco: #A66203;
+    --choco-shade: linear-gradient(180deg, #F5A72D 0%, #E49A26 43.23%, #A66203 96.35%, #A66203 99.97%, rgba(189, 118, 15, 0.722453) 99.98%, rgba(245, 167, 45, 0.03125) 99.99%, #A66203 100%);
+    --background-color: linear-gradient(180deg, #2E294E 0%, #43397D 100%);
+    --text-color : #E9E9E9;
+
+    --main-title : 'Lobster', cursive;
+    --text : 'Poppins', sans-serif;
+}
+
+h1 {
+    font-family: var(--main-title);
+    font-size: 3em;
+    color: var(--main-color);
+}
+
+h2 {
+    font-family: var(--main-title);
+    font-size: 3.5em;
+    padding: 30px;
+    color: var(--text-color);
+}
+
+p {
+    font-size: 1em;
+    color: var(--text-color);
+}
+
+/************** NAVBAR ******************************/
+
+navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    background: var(--choco-shade);
+    padding: 5px 10px;
+}
+
+navbar .logo img {
+    height: 40px;
+ 
+}
+
+navbar .help {
+    all: unset;
+    cursor: pointer;
+    background: var(--main-color);
+    border: 0;
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    color: var(--yellow-choco);
+    font-family: var(--main-title); 
+    font-size: 1.8em;
+    transition: 300ms;
+    text-align: center;
+}
+
+navbar .help:hover{
+    background: var(--choco-shade);
+    color: var(--main-color);
+}
+
+
+/*************** HEADER *******************************/
+
+
+
+
+
+/*************** SECTION SKILLS ***********************/
+
+
+
+
+/***************** SECTION SHOP ***********************/
+
+
+/******************* FOOTER ****************************/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    background: var(--choco-shade);
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.7em;
+}
