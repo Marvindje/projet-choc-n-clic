@@ -11,6 +11,7 @@ const bakeryName = document.querySelector("#bakeryName");
 //Cliquer sur le nom de la boulangerie affiche un prompt pour le changer
 bakery.addEventListener("click", function () {
   promptWindow.classList.remove("invisible");
+  background.classList.remove("invisible");
 });
 
 //Appuyer sur Entrée change le nom de la boulangerie et ferme le prompt
@@ -18,6 +19,7 @@ bakeryName.addEventListener("keyup", function (event) {
   if (event.key === "Enter" && bakeryName.value !== "") {
     bakery.innerHTML = bakeryName.value;
     promptWindow.classList.add("invisible");
+    background.classList.add("invisible");
   }
 });
 
@@ -29,6 +31,7 @@ confirmButton.addEventListener("click", function () {
   if (bakeryName.value !== "") {
     bakery.innerHTML = bakeryName.value;
     promptWindow.classList.add("invisible");
+    background.classList.add("invisible");
   }
 });
 
@@ -38,4 +41,15 @@ const cancelButton = document.querySelector(".cancel");
 //Appuyer sur le bouton ferme le prompt
 cancelButton.addEventListener("click", function () {
   promptWindow.classList.add("invisible");
+  background.classList.add("invisible");
+});
+
+//Filtre qui floute l'arrière-plan du prompt
+const background = document.querySelector(".background");
+background.classList.add("invisible");
+
+//Quand on clique sur l'arrière-plan on ferme le prompt
+background.addEventListener("click", function () {
+  promptWindow.classList.add("invisible");
+  background.classList.add("invisible");
 });

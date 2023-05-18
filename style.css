@@ -106,7 +106,7 @@ navbar .help:hover {
   font-family: var(--main-title);
   font-size: 3em;
   color: var(--text-color);
-  width: 30vw;
+  width: 80vw;
   text-align: center;
   margin: 40px auto 20px auto;
   cursor: pointer;
@@ -150,7 +150,7 @@ navbar .help:hover {
   justify-content: center;
   z-index: 999;
   height: 150px;
-  width: 400px;
+  width: 80vw;
   border-radius: 15px;
   gap: 10px;
   background: var(--choco-shade);
@@ -185,6 +185,14 @@ navbar .help:hover {
 
 .buttonDisplay .cancel {
   width: 50px;
+}
+
+.background {
+  position: absolute;
+  z-index: 600;
+  height: 88vh;
+  width: 100%;
+  backdrop-filter: blur(10px);
 }
 
 /*************** SECTION SKILLS ***********************/
