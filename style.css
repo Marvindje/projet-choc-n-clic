@@ -99,14 +99,14 @@ navbar .help:hover {
   height: 40vh;
   display: flex;
   flex-direction: column;
-  text-align: center;
+  align-items: center;
 }
 
 .window .bakery {
   font-family: var(--main-title);
   font-size: 3em;
   color: var(--text-color);
-  width: 100vw;
+  width: 30vw;
   text-align: center;
   margin: 40px auto 20px auto;
   cursor: pointer;
@@ -122,6 +122,7 @@ navbar .help:hover {
   font-size: 2em;
   color: var(--dark-yellow-choco);
   margin-bottom: 40px;
+  text-align: center;
 }
 
 .window .choco {
@@ -134,6 +135,56 @@ navbar .help:hover {
   width: 130px;
   height: 130px;
   cursor: pointer;
+}
+
+/**************************** PROMPT ****************************/
+
+.prompt {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  height: 150px;
+  width: 400px;
+  border-radius: 15px;
+  gap: 10px;
+  background: var(--choco-shade);
+}
+
+.invisible {
+  display: none;
+}
+
+.prompt #questionBlock {
+  text-align: center;
+  background-color: var(--main-color);
+  padding: 0.5em;
+  width: 70%;
+  border-radius: 15px;
+}
+
+.prompt #bakeryName {
+  text-align: center;
+  width: 70%;
+}
+
+.buttonDisplay {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttonDisplay .confirm {
+  width: 50px;
+}
+
+.buttonDisplay .cancel {
+  width: 50px;
 }
 
 /*************** SECTION SKILLS ***********************/
