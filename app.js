@@ -7,6 +7,17 @@ const worker3 = document.querySelector("#worker3");
 const upgrade1 = document.querySelector("#upgrade1");
 const upgrade2 = document.querySelector("#upgrade2");
 const upgrade3 = document.querySelector("#upgrade3");
+const curseurInfo = document.querySelector("#curseurinfo");
+const curseurNb = document.querySelector("#curseurnb");
+const worker1Info = document.querySelector("#worker1info");
+const worker1Nb = document.querySelector("#worker1nb");
+const worker2Info = document.querySelector("#worker2info");
+const worker2Nb = document.querySelector("#worker2nb");
+const worker3Info = document.querySelector("#worker3info");
+const worker3Nb = document.querySelector("#worker3nb");
+const upgrade1Cost = document.querySelector("#upgrade1cost");
+const upgrade2Cost = document.querySelector("#upgrade2cost");
+const upgrade3Cost = document.querySelector("#upgrade3cost");
 
 let score = 0;
 
@@ -58,7 +69,8 @@ function multiplicateurIncrease() {
 }
 
 function multiplicateurValue() {
-  multiplicateur.value = `  curseur coute ${updatePrice} nb : ${curseurNumber}  `;
+  curseurInfo.innerHTML = `  curseur coute ${updatePrice}   `;
+  curseurNb.innerHTML = ` ${curseurNumber}`;
 }
 
 function mutltiplicateurEnabler() {
@@ -71,7 +83,8 @@ function mutltiplicateurEnabler() {
 
 // Code du Worker 1
 function worker1Name() {
-  worker.value = ` workers  coute  ${worker1Price} nb: ${worker1Number}`;
+  worker1Info.innerHTML = ` workers  coute  ${worker1Price} `;
+  worker1Nb.innerHTML = `${worker1Number}`;
 }
 
 function worker1Works() {
@@ -97,7 +110,8 @@ function worker1Enabler() {
 
 // ----------------------------------------------------------------------Worker 2
 function worker2Name() {
-  worker2.value = ` workers 2 coute  ${worker2Price} nb : ${worker2Number}`;
+  worker2Info.innerHTML = ` workers  coute  ${worker1Price} `;
+  worker2Nb.innerHTML = `${worker2Number}`;
 }
 function worker2Enabler() {
   if (score >= worker2Price) {
@@ -122,7 +136,8 @@ function worker2Works() {
 
 //-------------------------------------------------------------------------------- Worker 3
 function worker3Name() {
-  worker3.value = ` workers 3  coute  ${worker3Price} nb: ${worker3Number}`;
+  worker3Info.innerHTML = ` workers  coute  ${worker3Price} `;
+  worker3Nb.innerHTML = `${worker3Number}`;
 }
 
 function worker3Works() {
@@ -148,7 +163,7 @@ function worker3Enabler() {
 //---------------------------------------------------------------------------------upgrade 1
 
 function upgrade1Name() {
-  upgrade1.value = `upgrade workers 1 coute ${upgrade1Price} `;
+  upgrade1Cost.innerHTML = ` coute ${upgrade1Price} `;
 }
 
 function upgradeWorker1() {
@@ -171,12 +186,12 @@ function upgrade1Enabler() {
 //---------------------------------------------------------------------------------------upgrade2
 
 function upgrade2Name() {
-  upgrade2.value = `upgrade workers 2 coute ${upgrade2Price} `;
+  upgrade2Cost.innerHTML = ` coute ${upgrade2Price} `;
 }
 function upgradeWorker2() {
   score = score - upgrade2Price;
   worker2Value += 1;
-  upgrade2Price = upgrade1Price * 2;
+  upgrade2Price = upgrade2Price * 2;
   refreshValue();
 }
 
@@ -192,7 +207,7 @@ function upgrade2Enabler() {
 //----------------------------------------------------------------------------------- upgrade 3
 upgrade3Name();
 function upgrade3Name() {
-  upgrade3.value = `upgrade workers 3 coute ${upgrade3Price} `;
+  upgrade3Cost.innerHTML = ` coute ${upgrade3Price} `;
 }
 function upgradeWorker3() {
   score = score - upgrade3Price;

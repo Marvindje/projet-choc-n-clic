@@ -1,28 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
-</head>
-<body>
-    <section>
-        <div id="compteur"></div>
-        <input type="button" id="clic" value="clic">
-    </section>
-    <section> 
-        <input type="button"  id ="multiplicateur" value="">
-        <input type="button" id  ="worker" value="">
-        <input type="button" id  ="worker2" value="">
-        <input type="button" id = "worker3" value ="">
-    </section>
-    <section>
-        <input type="button" id="upgrade1" value="">
-        <input type="button" id="upgrade2" value="">
-        <input type="button" id="upgrade3" value="">
-    </section>
-  <script src="app.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>Document</title>
+    </head>
+    <body>
+    <header>
+        <navbar>
+            <a class="logo">
+            <img ="..." alt="logo" />
+            </a>
+            <h1>Choc'n clic</h1>
+            <button class="help">?</button>
+        </navbar>
+    </header>
+    <section class="container">
+        <div class="chocolatine">
+            <div id="compteur"></div>
+            <button id="clic">clic</button>
+        </div>
+        <div class="upgradeworkers">
+            <div class="upgrade">
+                <button id="upgrade1">
+                    <p id="name1upgrade">upgrade 1</p>
+                    <p id="upgrade1cost"></p>
+                </button>
+                <button id="upgrade2">
+                    <p id="name2upgrade">upgrade2</p>
+                    <p id="upgrade2cost"></p>
+                </button>
+                <button id="upgrade3">
+                    <p id="name3upgrade">upgrade3 </p>
+                    <p id="upgrade3cost"></p>
+                </button>
+            </div>
+            <div class="worker">
+                <button id="multiplicateur">
+                    <img src="" alt="">
+                    <div>
+                        <p>Curseur</p>
+                        <p id="curseurinfo"></p>                      
+                    </div>
+                    <p id="curseurnb"></p>
+                </button>
+                <button id="worker">
+                    <img src="" alt="">
+                    <div>
+                        <p>worker1</p>
+                        <p id="worker1info"></p>                      
+                    </div>
+                    <p id="worker1nb"></p>
+                </button>
+                <button id="worker2">
+                    <img src="" alt="">
+                    <div>
+                        <p>worker2</p>
+                        <p id="worker2info"></p>                      
+                    </div>
+                    <p id="worker2nb"></p>
+                </button>                
+                <button id="worker3">
+                    <img src="" alt="">
+                    <div>
+                        <p>worker3</p>
+                        <p id="worker3info"></p>                      
+                    </div>
+                    <p id="worker3nb"></p>
+                </button>
+
+            </div>
+        </div>
+        </section>
+        <footer>
+            <div class="footer-bottom">
+                copyright &copy; Wilders, 2023, designed by awesome Wilders
+            </div>
+         </footer>
+         <script src="app.js"></script>
+    </body>
 </html>
