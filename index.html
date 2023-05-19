@@ -13,7 +13,30 @@
         <img ="..." alt="logo" />
       </a>
       <h1>Choc'n clic</h1>
-      <button class="help">?</button>
+
+      <button onclick="togglePopup()" class="help">?</button>
+
+      <div id="popup-overlay">
+        <div class="popup-content">
+          <h3>Règle du jeu</h3>
+          <h4>Le jeu est très simple :</h4>
+          <p>
+            Préparez le plus de chocolatines possible en cliquant sur ou en
+            touchant la chocolatine géante le plus rapidement possible. <br />
+            Dès que vous avez suffisamment de chocolatines, allez à la boutique
+            et utilisez-les pour acheter des améliorations et cuisiner encore
+            plus rapidement !
+          </p>
+
+          <a
+            href="javascript:void(0)"
+            onclick="togglePopup()"
+            class="popup-exit"
+          >
+            X
+          </a>
+        </div>
+      </div>
     </navbar>
 
     <header></header>
