@@ -1,4 +1,9 @@
-<<<<<<< HEAD
+
+function togglePopup() {
+  let popup = document.querySelector("#popup-overlay");
+  popup.classList.toggle("open");
+}
+
 const helpButton = document.querySelector(".help");
 
 helpButton.addEventListener("clic", (event) => {
@@ -10,7 +15,7 @@ helpButton.addEventListener("clic", (event) => {
   textRule.innerHTML =
     "Le jeu est très simple : - Préparez le plus de chocolatines possible en cliquant sur ou en touchant la chocolatine géante le plus rapidement possible. - Dès que vous avez suffisamment de chocolatines, allez à la boutique et utilisez-les pour acheter des améliorations et cuisiner encore plus rapidement !";
   helpCard.appendChild(textRule);
-=======
+
 //Nom de la boulangerie
 const bakery = document.querySelector(".bakery");
 
@@ -65,5 +70,6 @@ background.classList.add("invisible");
 background.addEventListener("click", function () {
   promptWindow.classList.add("invisible");
   background.classList.add("invisible");
->>>>>>> fdb51656e88db3827e196824670d955a166d93be
+
 });
+
