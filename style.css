@@ -181,7 +181,7 @@ navbar .help:hover {
 /*************** SECTION WINDOW *******************************/
 
 .window {
-  height: 40vh;
+  height: 45vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -206,20 +206,20 @@ navbar .help:hover {
   font-family: var(--main-title);
   font-size: 2em;
   color: var(--dark-yellow-choco);
-  margin-bottom: 40px;
   text-align: center;
 }
 
 .window #clic {
+  padding: 0;
+  background: none;
+  border: none;
   margin: auto;
+  cursor: pointer;
 }
 
-.window #clic button {
-  background-color: var(--yellow-choco);
-  border-radius: 50%;
-  width: 130px;
-  height: 130px;
-  cursor: pointer;
+#clic img {
+  width: 10em;
+  height: 10em;
 }
 
 /**************************** PROMPT ****************************/
@@ -239,6 +239,7 @@ navbar .help:hover {
   border-radius: 15px;
   gap: 10px;
   background: var(--choco-shade);
+  animation: fadeIn 1s;
 }
 
 .invisible {
@@ -248,6 +249,7 @@ navbar .help:hover {
 .prompt #questionBlock {
   text-align: center;
   background-color: var(--main-color);
+  font-family: var(--text);
   padding: 0.5em;
   width: 70%;
   border-radius: 15px;
@@ -256,6 +258,7 @@ navbar .help:hover {
 .prompt #bakeryName {
   text-align: center;
   width: 70%;
+  font-family: var(--text);
 }
 
 .buttonDisplay {
@@ -273,11 +276,14 @@ navbar .help:hover {
 }
 
 .background {
-  position: absolute;
-  z-index: 600;
-  height: 88vh;
-  width: 100%;
-  backdrop-filter: blur(10px);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 90;
+  animation: fadeIn 1s;
 }
 
 /************************************* deuxieme bloc  **************************************************/
@@ -286,7 +292,6 @@ navbar .help:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 0em;
 }
 
 /****************************** Upgrade */
