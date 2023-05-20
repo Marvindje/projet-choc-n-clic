@@ -9,7 +9,7 @@
 
 html {
     scroll-behavior: smooth;
-    box-sizing: border-box;
+    box-sizing: border-box;    
 }
 
 body {
@@ -19,6 +19,7 @@ body {
     font-family: var(--text);
     color: var(--text-color);
     font-size: 100%;
+    position: relative;
 }
 
 :root {
@@ -160,26 +161,94 @@ navbar .help:hover{
       opacity: 1;
     }
   }
-  
-
-/***************** SECTION SHOP **********************/
-
-
-
-
-
-
-/***********Upgrade*******************/
+/*************************************Section**************************************************************/
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
 
 
 
 
+/************************************* Premier bloc **************************************************/
+
+.window{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em;
+}
+#clic{
+  padding: 0;
+  background: none;
+  border: none;
+  margin-top: 2em;
+ 
+}
+#clic img{
+  width: 10em;
+  height: 10em;
+}
+
+
+
+/************************************* deuxieme bloc  **************************************************/
+
+.shop{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0em;
+}
+
+
+
+/****************************** Upgrade */
+
+
+
+/****************************** Worker */
+.worker{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 1em 2em ;
+  border-radius: 15px  ;
+  padding: 0.5em 0.5em;
+ 
+}
+.worker button{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0.5em 0.7em;
+  height: 5em;
+  border-radius: 15px;
+  background: var(--choco-shade);
+  color: #E9E9E9;
+  font-family: var(--text);
+}
+.worker img{
+  margin-left: 1em;
+
+}
+
+.centerbutton{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;  
+}
+.titlebutton{
+  font-family: var(--main-title);
+}
 
 
 
 
-
-/*************worker******************/
 
 
 
@@ -198,7 +267,7 @@ footer {
     bottom: 0;
     background: var(--choco-shade);
     width: 100%;
-    height: 30px;
+    height: 2.5em;
     display: flex;
     justify-content: center;
     align-items: center;

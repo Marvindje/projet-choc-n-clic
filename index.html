@@ -8,6 +8,7 @@
     <title>Document</title>
 </head>
 <body>
+  <!-- navbar -->
     <navbar>
         <a class="logo">
           <img
@@ -41,13 +42,20 @@
           </div>
         </div>
       </navbar>
+      <!-- fin de la nav bar -->
+                      <!------------------------------- section -------------------------------------------->
     <section class="container">
+                     <!------------------------------- premiere bloc ------------------------------->                                 
         <div class="window">
             <div class="bakery"></div>
-            <div class="score"></div>
-            <button class="clic"></button>
+            <div id="compteur"></div>
+            <button id="clic">
+              <img src="./Maquettes/chocolatine-clickers.png" alt="">
+            </button>
         </div>
+                     <!----------------------------------- deuxieme bloc ------------------------------->
         <div class="shop">
+                                        <!-- ---------- premiere div du second bloc  ----------- -->
             <div class="upgrade">
                 <button id="upgrade1">
                     <img src="" alt="">
@@ -55,42 +63,49 @@
                     <p id="upgrade1cost"></p>
                 </button>
                 <button id="upgrade2">
-                    <button id="upgrade2">
                         <img src="" alt="">
-                        <p id="name1upgrade">upgrade</p>
-                        <p id="upgrade1cost"></p>
+                        <p id="name2upgrade">upgrade</p>
+                        <p id="upgrade2cost"></p>
                 </button>
                 <button id="upgrade3">
-                    <button id="upgrade3">
                         <img src="" alt="">
                         <p id="name3upgrade">upgrade</p>
                         <p id="upgrade3cost"></p>
                 </button>
             </div>
+                                   <!-- ---------- deuxieme div  second bloc  ----------- -->
             <div class="worker">
-                <button id="worker1">
-                    <img src="" alt="">
-                    <p>upgrade1</p>
-                    <p id="worker1info"></p>
-                    <p id="worker1number"></p>
+                <button id="curseur">
+                    <img src="./Maquettes/super-spatule.png" width="30"height="30" alt="">
+                    <div class="centerbutton">
+                      <p class="titlebutton">Curseur</p>
+                      <p id="curseurinfo"></p>
+                    </div>
+                    <p id="curseurnb"></p>
                 </button>
-                <button id="worker2">
-                    <img src="" alt="">
-                    <p>upgrade1</p>
-                    <p id="worker2info"></p>
-                    <p id="worker2number"></p>
+                <button id="commis">
+                    <img src="./Maquettes/super-spatule.png" width="30" height="30" alt="">
+                    <div class="centerbutton">
+                      <p class="titlebutton">Commis</p>
+                      <p id="commisinfo"></p>
+                    </div>
+                    <p id="commisnb"></p>
                 </button>
-                <button id="worker3">
-                    <img src="" alt="">
-                    <p>upgrade1</p>
-                    <p id="worker3info"></p>
-                    <p id="worker3number"></p>
+                <button id="patissier">
+                    <img src="./Maquettes/Rouleau-a-patisserie.png"width="30" height="30" alt="">
+                    <div class="centerbutton">
+                      <p class="titlebutton">Patissier</p>
+                      <p id="patissierinfo"></p>
+                    </div>
+                    <p id="patissiernb"></p>
                 </button>
-                <button id="worker4">
-                    <img src="" alt="">
-                    <p>worker4</p>
-                    <p id="worker4info"></p>
-                    <p id="worker4number"></p>
+                <button id="chef">
+                    <img src="./Maquettes/supermega-toque.png" width="30" height="30" alt="">
+                    <div class="centerbutton">
+                      <p class="titlebutton">Chef</p>
+                      <p id="chefinfo"></p>
+                    </div>
+                    <p id="chefnb"></p>
                 </button>               
             </div>
         </div>
