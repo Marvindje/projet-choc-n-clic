@@ -1,34 +1,55 @@
+//Nom de la boulangerie
 const bakery = document.querySelector(".bakery");
 
-const chocoButton = document.querySelector(".choco");
-let score = document.querySelector(".score");
+//Fenêtre prompt
+const promptWindow = document.querySelector(".prompt");
+promptWindow.classList.add("invisible");
 
-let count = 0;
+//Input du nom de la boulangerie
+const bakeryName = document.querySelector("#bakeryName");
 
-// Actualise le score toutes les 50 millisecondes
-setInterval(function () {
-  score.innerHTML = `${count} Chocos`;
-}, 50);
-
-chocoButton.addEventListener("click", function () {
-  count++;
+//Cliquer sur le nom de la boulangerie affiche un prompt pour le changer
+bakery.addEventListener("click", function () {
+  promptWindow.classList.remove("invisible");
+  background.classList.remove("invisible");
 });
 
-const worker = document.querySelector(".worker");
-// Augmente de 10 le score
-function baker() {
-  count = count + 10;
-}
-// Répète une fonction toutes les secondes
-worker.addEventListener("click", function () {
-  setInterval(baker, 1000);
-});
-
-// Rend invisible le worker
-worker.classList.add("disable");
-// Fait apparaître le worker quand le score atteint 10
-chocoButton.addEventListener("click", function () {
-  if (count > 10) {
-    worker.classList.remove("disable");
+//Appuyer sur Entrée change le nom de la boulangerie et ferme le prompt
+bakeryName.addEventListener("keyup", function (event) {
+  if (event.key === "Enter" && bakeryName.value !== "") {
+    bakery.innerHTML = bakeryName.value;
+    promptWindow.classList.add("invisible");
+    background.classList.add("invisible");
   }
+});
+
+//Bouton confirmer du prompt
+const confirmButton = document.querySelector(".confirm");
+
+//Appuyer sur le bouton confirme le changement de nom et ferme le prompt
+confirmButton.addEventListener("click", function () {
+  if (bakeryName.value !== "") {
+    bakery.innerHTML = bakeryName.value;
+    promptWindow.classList.add("invisible");
+    background.classList.add("invisible");
+  }
+});
+
+//Bouton annuler du prompt
+const cancelButton = document.querySelector(".cancel");
+
+//Appuyer sur le bouton ferme le prompt
+cancelButton.addEventListener("click", function () {
+  promptWindow.classList.add("invisible");
+  background.classList.add("invisible");
+});
+
+//Filtre qui floute l'arrière-plan du prompt
+const background = document.querySelector(".background");
+background.classList.add("invisible");
+
+//Quand on clique sur l'arrière-plan on ferme le prompt
+background.addEventListener("click", function () {
+  promptWindow.classList.add("invisible");
+  background.classList.add("invisible");
 });

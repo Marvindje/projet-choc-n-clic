@@ -1,31 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Choc'n Clic</title>
+    <title>Chock'n Clic</title>
   </head>
   <body>
-    <header>
-      <nav>
-        <div class="logo"></div>
-        <h1>Choc-n Clic</h1>
-        <div class="rules"></div>
-      </nav>
-    </header>
-    <main>
-      <section class="choco-section">
-        <input class="bakery" value="Nom de la Boulangerie" />
-        <div class="score">0 chocos</div>
-        <button class="choco"></button>
-      </section>
-      <section class="upgrade-section"></section>
-      <section class="workers-section">
-        <button class="worker">Worker</button>
-      </section>
-    </main>
+    <navbar>
+      <a class="logo">
+        <img ="..." alt="logo" />
+      </a>
+      <h1>Choc'n Clic</h1>
+      <button class="help">?</button>
+    </navbar>
+    <section class="container"></section>
+      <div class="window">
+        <div class="background"></div>
+        <div class="prompt">
+          <div id="questionBlock">What's the name of your bakery ?</div>
+          <input
+            type="text"
+            id="bakeryName"
+            value="Wilder's Bakery"
+            maxlength="40"
+          />
+          <div class="buttonDisplay">
+            <button class="confirm">✔️</button>
+            <button class="cancel">❌</button>
+          </div>
+        </div>
+        <div class="bakery">Wilder's bakery</div>
+        <div class="score">0 Chocos</div>
+        <div class="choco">
+          <button></button>
+        </div>
+      </div>
+
+      <div class="shop"></div>
+    </section>
+    <footer>
+      <div class="footer-bottom">
+        copyright &copy; Wilders, 2023, designed by awesome Wilders
+      </div>
+    </footer>
+
     <script src="app.js"></script>
   </body>
 </html>
