@@ -47,11 +47,25 @@
     <section class="container">
       <!------------------------------- premiere bloc ------------------------------->
       <div class="window">
-        <div class="bakery"></div>
-        <div id="compteur"></div>
-        <button id="clic">
-          <img src="./Maquettes/chocolatine-clickers.png" alt="" />
-        </button>
+        <div class="background"></div>
+        <div class="prompt">
+          <div id="questionBlock">What's the name of your bakery ?</div>
+          <input
+            type="text"
+            id="bakeryName"
+            value="Wilder's Bakery"
+            maxlength="40"
+          />
+          <div class="buttonDisplay">
+            <button class="confirm">✔️</button>
+            <button class="cancel">❌</button>
+          </div>
+        </div>
+        <div class="bakery">Wilder's bakery</div>
+        <div id="compteur">0 Chocos</div>
+        <div id="clic">
+          <button></button>
+        </div>
       </div>
       <!----------------------------------- deuxieme bloc ------------------------------->
       <div class="shop">

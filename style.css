@@ -202,7 +202,7 @@ navbar .help:hover {
   text-shadow: var(--yellow-choco) 0px 0px 44px;
 }
 
-.score {
+#compteur {
   font-family: var(--main-title);
   font-size: 2em;
   color: var(--dark-yellow-choco);
@@ -210,11 +210,11 @@ navbar .help:hover {
   text-align: center;
 }
 
-.window .choco {
+.window #clic {
   margin: auto;
 }
 
-.window .choco button {
+.window #clic button {
   background-color: var(--yellow-choco);
   border-radius: 50%;
   width: 130px;
