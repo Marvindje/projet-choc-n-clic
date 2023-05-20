@@ -61,7 +61,7 @@ background.addEventListener("click", function () {
   background.classList.add("invisible");
 });
 
-//---------------------------------------------------------------------------//
+//----------------------------Cedric-------------------------------------------//
 
 const compteur = document.querySelector("#compteur");
 const clic = document.querySelector("#clic");
@@ -110,7 +110,7 @@ patissier.disabled = true;
 chef.disabled = true;
 
 function compteurScore() {
-  compteur.innerHTML = score;
+  compteur.innerHTML = `${score} Choco`;
 }
 //-------------------------------------------------------------------curseur
 function scoreIncrease() {
