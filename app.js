@@ -275,8 +275,8 @@ function upgrade3Enabler() {
 }
 
 //----------------------------------------------------------------------------------------Fin upgrade 3
-setInterval(() => refreshValue(), 50);
-setInterval(() => EnablerAll(), 50);
+setInterval(() => refreshValue(), 1);
+setInterval(() => EnablerAll(), 1);
 
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
 function EnablerAll() {
@@ -299,6 +299,7 @@ function refreshValue() {
   upgrade2Name();
   upgrade3Name();
 }
+//------------------------------------------------------------------------------Check toute les value des boutons des le debut de la page
 
 refreshValue();
 EnablerAll();
@@ -308,6 +309,47 @@ chefName();
 upgrade1Name();
 upgrade2Name();
 upgrade3Name();
+
+//------------------------------------------------------------------------------function pour changer la class css des boutons
+function commisStyle() {
+  if (commis.disabled) {
+    commis.classList.add("disabled");
+  } else {
+    commis.classList.remove("disabled");
+  }
+}
+
+function patissierStyle() {
+  if (patissier.disabled) {
+    patissier.classList.add("disabled");
+  } else {
+    patissier.classList.remove("disabled");
+  }
+}
+
+function chefStyle() {
+  if (chef.disabled) {
+    chef.classList.add("disabled");
+  } else {
+    chef.classList.remove("disabled");
+  }
+}
+function curseurStyle() {
+  if (curseur.disabled) {
+    curseur.classList.add("disabled");
+  } else {
+    curseur.classList.remove("disabled");
+  }
+}
+//------------------------------------------------------------------------------regouprer les changement de class dans une seul fonction pour intervalle
+function changeStyle() {
+  commisStyle();
+  patissierStyle();
+  curseurStyle();
+  chefStyle();
+}
+
+setInterval(() => changeStyle(), 50);
 
 //--------------------------------------------------------------------------------------Event
 clic.addEventListener("click", scoreIncrease);

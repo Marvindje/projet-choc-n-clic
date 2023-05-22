@@ -325,8 +325,26 @@ navbar .help:hover {
   color: #e9e9e9;
   font-family: var(--text);
 }
+.worker button.disabled{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0.5em 0.7em;
+  height: 5em;
+  border-radius: 15px;
+  background: var(--choco-shade);
+  color: #e9e9e9;
+  font-family: var(--text);
+  opacity: 0.5;
+}
 .worker img {
-  margin-left: 1em;
+  margin-left: 0.5em;
+  object-fit: contain;
+  width: 3.5em;
+  height: 3.5em;
+  
 }
 
 .centerbutton {
@@ -337,7 +355,22 @@ navbar .help:hover {
 .titlebutton {
   font-family: var(--main-title);
 }
-
+#curseurnb{
+  font-family: var(--main-title);
+  font-size: large;
+}
+#commisnb{
+  font-family: var(--main-title);
+  font-size: large;
+}
+#patissiernb{
+  font-family: var(--main-title);
+  font-size: large;
+}
+#chefnb{
+  font-family: var(--main-title);
+  font-size: large;
+}
 /******************* FOOTER ****************************/
 
 footer {
