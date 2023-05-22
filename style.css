@@ -136,44 +136,48 @@ navbar .help:hover {
   line-height: 2;
 }
 
-.popup-content h3 {
-  font-family: var(--main-title);
-  font-size: 2.5em;
-  margin: 5px;
-}
-
-.popup-content h4 {
-  text-align: center;
-  font-family: var(--text);
-  color: var(--yellow-choco);
-  font-size: 2rem;
-  margin: 5px;
-}
-
-.popup-exit {
-  text-decoration: none;
-  font-family: var(--text);
-  font-size: 2em;
-  color: var(--yellow-choco);
-  position: absolute;
-  right: 13px;
-  top: 0px;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  .popup-content h3{
+    font-family: var(--main-title);
+    font-size: 2.5em;
+    margin: 5px;
   }
-  to {
-    opacity: 1;
+  
+  .popup-content h4 {
+    text-align: center;
+    font-family: var(--text);
+    color: var(--yellow-choco);
+    font-size: 2rem;
+    margin: 5px;
   }
-}
-/*************************************Section**************************************************************/
-.container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
+  
+  .popup-exit {
+    text-decoration: none;
+    font-family: var(--text);
+    font-size: 2em;
+    color: var(--yellow-choco);
+    position: absolute;
+    right: 13px;
+    top: 0px;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+
+
+/*************** HEADER *******************************/
+
+
+
+
+
+/*************** SECTION SKILLS ***********************/
 
 /************************************* Premier bloc **************************************************/
 
@@ -321,8 +325,26 @@ navbar .help:hover {
   color: #e9e9e9;
   font-family: var(--text);
 }
+.worker button.disabled{
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0.5em 0.7em;
+  height: 5em;
+  border-radius: 15px;
+  background: var(--choco-shade);
+  color: #e9e9e9;
+  font-family: var(--text);
+  opacity: 0.5;
+}
 .worker img {
-  margin-left: 1em;
+  margin-left: 0.5em;
+  object-fit: contain;
+  width: 3.5em;
+  height: 3.5em;
+  
 }
 
 .centerbutton {
@@ -333,7 +355,22 @@ navbar .help:hover {
 .titlebutton {
   font-family: var(--main-title);
 }
-
+#curseurnb{
+  font-family: var(--main-title);
+  font-size: large;
+}
+#commisnb{
+  font-family: var(--main-title);
+  font-size: large;
+}
+#patissiernb{
+  font-family: var(--main-title);
+  font-size: large;
+}
+#chefnb{
+  font-family: var(--main-title);
+  font-size: large;
+}
 /******************* FOOTER ****************************/
 
 footer {
