@@ -110,7 +110,11 @@ patissier.disabled = true;
 chef.disabled = true;
 
 function compteurScore() {
-  compteur.innerHTML = score;
+  if (score <= 1) {
+    compteur.innerHTML = ` ${score} choco`;
+  } else {
+    compteur.innerHTML = ` ${score} chocos`;
+  }
 }
 //-------------------------------------------------------------------curseur
 function scoreIncrease() {
