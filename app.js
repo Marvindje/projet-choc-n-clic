@@ -56,18 +56,14 @@ function compteurScore() {
 }
 //-------------------------------------------------------------------curseur
 function scoreIncrease() {
-  score = score + clicValue;
-  refreshValue();
-  EnablerAll();
+  score += clicValue;
 }
 
 function curseurIncrease() {
-  clicValue = clicValue + 1;
-  score = score - updatePrice;
+  clicValue += 1;
+  score -= updatePrice;
   updatePrice = updatePrice * 2;
-  curseurNumber = curseurNumber + 1;
-  refreshValue();
-  EnablerAll();
+  curseurNumber += 1;
 }
 
 function curseurValue() {
@@ -90,14 +86,12 @@ function commisName() {
 }
 
 function commisWorks() {
-  score = score - commisPrice;
+  score -= commisPrice;
   commisPrice = commisPrice * 2;
-  commisNumber = commisNumber + 1;
+  commisNumber += 1;
   commisName();
   setInterval(() => {
-    score = score + commisValue;
-    refreshValue();
-    EnablerAll();
+    score += commisValue;
   }, 1000);
 }
 
@@ -124,14 +118,12 @@ function patissierEnabler() {
 }
 
 function patissierWorks() {
-  score = score - patissierPrice;
+  score -= patissierPrice;
   patissierPrice = patissierPrice * 2;
-  patissierNumber = patissierNumber + 1;
+  patissierNumber += 1;
   patissierName();
   setInterval(() => {
     score = score + patissierValue;
-    refreshValue();
-    EnablerAll();
   }, 1000);
 }
 //---------------------------------------------------------------------------- fin Patissier
@@ -143,14 +135,12 @@ function chefName() {
 }
 
 function chefWorks() {
-  score = score - chefPrice;
+  score -= chefPrice;
   chefPrice = chefPrice * 2;
-  chefNumber = chefNumber + 1;
+  chefNumber += +1;
   chefName();
   setInterval(() => {
     score = score + chefValue;
-    refreshValue();
-    EnablerAll();
   }, 1000);
 }
 function chefEnabler() {
@@ -169,15 +159,13 @@ function upgrade1Name() {
 }
 
 function upgradecommis() {
-  score = score - upgrade1Price;
+  score -= upgrade1Price;
   commisValue += 1;
   upgrade1Price = upgrade1Price * 2;
-  refreshValue();
-  //compteurScore();
 }
 
 function upgrade1Enabler() {
-  if (score >= upgrade1Price) {
+  if (score >= upgrade1Price && commisNumber >= 1) {
     upgrade1.disabled = false;
   } else {
     upgrade1.disabled = true;
@@ -191,14 +179,13 @@ function upgrade2Name() {
   upgrade2Cost.innerHTML = ` prix: ${upgrade2Price} `;
 }
 function upgradepatissier() {
-  score = score - upgrade2Price;
+  score -= upgrade2Price;
   patissierValue += 1;
   upgrade2Price = upgrade2Price * 2;
-  refreshValue();
 }
 
 function upgrade2Enabler() {
-  if (score >= upgrade2Price) {
+  if (score >= upgrade2Price && patissierNumber >= 1) {
     upgrade2.disabled = false;
   } else {
     upgrade2.disabled = true;
@@ -212,13 +199,13 @@ function upgrade3Name() {
   upgrade3Cost.innerHTML = ` prix ${upgrade3Price} `;
 }
 function upgradechef() {
-  score = score - upgrade3Price;
+  score -= upgrade3Price;
   chefValue += 1;
   upgrade3Price = upgrade3Price * 2;
   refreshValue();
 }
 function upgrade3Enabler() {
-  if (score >= upgrade2Price) {
+  if (score >= upgrade3Price && chefNumber >= 1) {
     upgrade3.disabled = false;
   } else {
     upgrade3.disabled = true;
@@ -226,7 +213,8 @@ function upgrade3Enabler() {
 }
 
 //----------------------------------------------------------------------------------------Fin upgrade 3
-setInterval(() => compteurScore(), 50);
+setInterval(() => refreshValue(), 50);
+setInterval(() => EnablerAll(), 50);
 
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
 function EnablerAll() {
@@ -240,6 +228,7 @@ function EnablerAll() {
 }
 //------------------------------------------------------------------------------Check toute les value des boutons
 function refreshValue() {
+  compteurScore();
   curseurValue();
   commisName();
   patissierName();
