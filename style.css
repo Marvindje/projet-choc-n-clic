@@ -161,13 +161,16 @@ navbar .help:hover{
       opacity: 1;
     }
   }
-/*************************************Section**************************************************************/
-.container{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-}
+  
+
+
+/*************** HEADER *******************************/
+
+
+
+
+
+/*************** SECTION SKILLS ***********************/
 
 
 
