@@ -446,8 +446,8 @@ if (localStorage.getItem("stClic")) {
   clicValue = parseInt(localStorage.getItem("stClic"));
 }
 
-if (localStorage.getItem("StCommisValue")) {
-  commisValue = parseInt(localStorage.getItem("StCommisValue"));
+if (localStorage.getItem("stCommisValue")) {
+  commisValue = parseInt(localStorage.getItem("stCommisValue"));
 }
 
 if (localStorage.getItem("stPatissierValue")) {
