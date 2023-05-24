@@ -358,6 +358,22 @@ function buttonStyle() {
 }
 
 setInterval(() => buttonStyle(), 50);
+//--------------------------------------------------------------changer les images
+function changePicture() {
+  if (commisValue >= 11) {
+    document.getElementById("commisPicture").src =
+      "/Maquettes/apprentis-upgrade.png";
+  }
+  if (patissierValue >= 11) {
+    document.getElementById("patissierPicture").src =
+      "/Maquettes/patissier-upgrade.png";
+  }
+  if (chefValue >= 11) {
+    document.getElementById("chefPicture").src = "/Maquettes/chef-upgrade.png";
+  }
+}
+
+setInterval(() => changePicture(), 1);
 
 //--------------------------------------------------------------------------------------Event
 clic.addEventListener("click", scoreIncrease);
@@ -388,7 +404,7 @@ setInterval(() => {
   localStorage.setItem("stCommisNumber", commisNumber);
   localStorage.setItem("stPatissierNumber", patissierNumber);
   localStorage.setItem("stChefNumber", chefNumber);
-}, 10000);
+}, 1000);
 
 if (localStorage.getItem("storedName")) {
   bakery.innerHTML = localStorage.getItem("storedName");
