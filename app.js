@@ -84,13 +84,13 @@ const upgrade1Cost = document.querySelector("#upgrade1cost");
 const upgrade2Cost = document.querySelector("#upgrade2cost");
 const upgrade3Cost = document.querySelector("#upgrade3cost");
 
-let score = 0;
+let score = 20000000;
 let clicValue = 1;
 let updatePrice = 10;
 let curseurNumber = 0;
-let commisValue = 1;
-let patissierValue = 1;
-let chefValue = 1;
+let commisValue = 10;
+let patissierValue = 10;
+let chefValue = 10;
 let commisPrice = 50;
 let patissierPrice = 50;
 let chefPrice = 50;
@@ -155,10 +155,10 @@ function commisWorks() {
   score -= commisPrice;
   commisPrice = commisPrice * 2;
   commisNumber += 1;
-  commisName();
-  setInterval(() => {
-    score += commisValue;
-  }, 1000);
+  // commisName();
+  // setInterval(() => {
+  //   score += commisValue;
+  // }, 1000);
 }
 
 function commisEnabler() {
@@ -197,26 +197,16 @@ function patissierWorks() {
   score -= patissierPrice;
   patissierPrice = patissierPrice * 2;
   patissierNumber += 1;
-  patissierName();
-  setInterval(() => {
-    score = score + patissierValue;
-  }, 1000);
+  // patissierName();
+  // setInterval(() => {
+  //   score = score + patissierValue;
+  // }, 1000);
 }
-
-const patissierRestart = () => {
-  patissierEnabler();
-  patissierName();
-  for (let i = 0; i < patissierNumber; i++) {
-    setInterval(() => {
-      score = score + patissierValue;
-    }, 1000);
-  }
-};
 //---------------------------------------------------------------------------- fin Patissier
 
 //-------------------------------------------------------------------------------- Chef
 function chefName() {
-  chefInfo.innerHTML = `Cuisine ${chefValue} choco/s. prix:${chefPrice} `;
+  chefInfo.innerHTML = `Cuisine <span style="color: purple;">${chefValue}</span> choco/s. prix: ${chefPrice}  `;
   chefNb.innerHTML = `${chefNumber}`;
 }
 
@@ -224,10 +214,10 @@ function chefWorks() {
   score -= chefPrice;
   chefPrice = chefPrice * 2;
   chefNumber += +1;
-  chefName();
-  setInterval(() => {
-    score = score + chefValue;
-  }, 1000);
+  // chefName();
+  //   setInterval(() => {
+  //     score = score + chefValue;
+  //   }, 1000);
 }
 function chefEnabler() {
   if (score >= chefPrice) {
@@ -252,7 +242,7 @@ const chefRestart = () => {
 //---------------------------------------------------------------------------------upgrade 1
 
 function upgrade1Name() {
-  upgrade1Cost.innerHTML = `prix: ${upgrade1Price} `;
+  upgrade1Cost.innerHTML = ` ${upgrade1Price} `;
 }
 
 function upgradecommis() {
@@ -277,7 +267,7 @@ const upgrade1Restart = () => {
 //---------------------------------------------------------------------------------------upgrade2
 
 function upgrade2Name() {
-  upgrade2Cost.innerHTML = ` prix: ${upgrade2Price} `;
+  upgrade2Cost.innerHTML = ` ${upgrade2Price} `;
 }
 function upgradepatissier() {
   score -= upgrade2Price;
@@ -301,13 +291,13 @@ const upgrade2Restart = () => {
 //----------------------------------------------------------------------------------- upgrade 3
 upgrade3Name();
 function upgrade3Name() {
-  upgrade3Cost.innerHTML = ` prix ${upgrade3Price} `;
+  upgrade3Cost.innerHTML = `  ${upgrade3Price} `;
 }
 function upgradechef() {
   score -= upgrade3Price;
   chefValue += 1;
   upgrade3Price = upgrade3Price * 2;
-  refreshValue();
+  // refreshValue();
 }
 function upgrade3Enabler() {
   if (score >= upgrade3Price && chefNumber >= 1) {
@@ -322,8 +312,8 @@ const upgrade3Restart = () => {
   upgrade3Enabler();
 };
 //----------------------------------------------------------------------------------------Fin upgrade 3
-setInterval(() => refreshValue(), 50);
-setInterval(() => EnablerAll(), 50);
+setInterval(() => refreshValue(), 1);
+setInterval(() => EnablerAll(), 1);
 
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
 function EnablerAll() {
@@ -346,6 +336,7 @@ function refreshValue() {
   upgrade2Name();
   upgrade3Name();
 }
+//------------------------------------------------------------------------------Check toute les value des boutons des le debut de la page
 
 refreshValue();
 EnablerAll();
@@ -355,6 +346,74 @@ chefName();
 upgrade1Name();
 upgrade2Name();
 upgrade3Name();
+
+//------------------------------------------------------------------------------function pour changer la class css des boutons selon si il sont activer ou desactiver
+function commisStyle() {
+  if (commis.disabled) {
+    commis.classList.add("disabled");
+  } else {
+    commis.classList.remove("disabled");
+  }
+}
+
+function patissierStyle() {
+  if (patissier.disabled) {
+    patissier.classList.add("disabled");
+  } else {
+    patissier.classList.remove("disabled");
+  }
+}
+
+function chefStyle() {
+  if (chef.disabled) {
+    chef.classList.add("disabled");
+  } else {
+    chef.classList.remove("disabled");
+  }
+}
+function curseurStyle() {
+  if (curseur.disabled) {
+    curseur.classList.add("disabled");
+  } else {
+    curseur.classList.remove("disabled");
+  }
+}
+function upgrade1Style() {
+  if (upgrade1.disabled) {
+    upgrade1.classList.add("disabled");
+  } else {
+    upgrade1.classList.remove("disabled");
+  }
+}
+
+function upgrade2Style() {
+  if (upgrade2.disabled) {
+    upgrade2.classList.add("disabled");
+  } else {
+    upgrade2.classList.remove("disabled");
+  }
+}
+
+function upgrade3Style() {
+  if (upgrade3.disabled) {
+    upgrade3.classList.add("disabled");
+  } else {
+    upgrade3.classList.remove("disabled");
+  }
+}
+
+//------------------------------------------------------------------------------regouprer les changement de class dans une seul fonction pour intervalle
+function changeStyle() {
+  commisStyle();
+  patissierStyle();
+  curseurStyle();
+  chefStyle();
+  upgrade1Style();
+  upgrade2Style();
+  upgrade3Style();
+}
+
+setInterval(() => changeStyle(), 50);
 
 //--------------------------------------------------------------------------------------Event
 clic.addEventListener("click", scoreIncrease);
@@ -366,102 +425,15 @@ upgrade1.addEventListener("click", upgradecommis);
 upgrade2.addEventListener("click", upgradepatissier);
 upgrade3.addEventListener("click", upgradechef);
 
-//------------------------- Local Storage -----------------------------------//
-
-setInterval(() => {
-  localStorage.setItem("stScore", score);
-  localStorage.setItem("stClic", clicValue);
-  localStorage.setItem("stUDPrice", updatePrice);
-  localStorage.setItem("stCurseurNumber", curseurNumber);
-  localStorage.setItem("stCommisValue", commisValue);
-  localStorage.setItem("stPatissierValue", patissierValue);
-  localStorage.setItem("stChefValue", chefValue);
-  localStorage.setItem("stCommisPrice", commisPrice);
-  localStorage.setItem("stPatissierPrice", patissierPrice);
-  localStorage.setItem("stChefPrice", chefPrice);
-  localStorage.setItem("stUG1Price", upgrade1Price);
-  localStorage.setItem("stUG2Price", upgrade2Price);
-  localStorage.setItem("stUG3Price", upgrade3Price);
-  localStorage.setItem("stCommisNumber", commisNumber);
-  localStorage.setItem("stPatissierNumber", patissierNumber);
-  localStorage.setItem("stChefNumber", chefNumber);
-}, 10000);
-
-if (localStorage.getItem("storedName")) {
-  bakery.innerHTML = localStorage.getItem("storedName");
+function refeshScore() {
+  score =
+    score +
+    Math.trunc(
+      (patissierValue * patissierNumber +
+        chefValue * chefNumber +
+        commisValue * commisNumber) /
+        10
+    );
 }
 
-if (localStorage.getItem("stScore")) {
-  score = parseInt(localStorage.getItem("stScore"));
-}
-
-if (localStorage.getItem("stUDPrice")) {
-  updatePrice = parseInt(localStorage.getItem("stUDPrice"));
-}
-
-if (localStorage.getItem("stCurseurNumber")) {
-  curseurNumber = parseInt(localStorage.getItem("stCurseurNumber"));
-}
-
-if (localStorage.getItem("stCommisPrice")) {
-  commisPrice = parseInt(localStorage.getItem("stCommisPrice"));
-}
-
-if (localStorage.getItem("stPatissierPrice")) {
-  patissierPrice = parseInt(localStorage.getItem("stPatissierPrice"));
-}
-
-if (localStorage.getItem("stChefPrice")) {
-  chefPrice = parseInt(localStorage.getItem("stChefPrice"));
-}
-
-if (localStorage.getItem("stUG1Price")) {
-  upgrade1Price = parseInt(localStorage.getItem("stUG1Price"));
-}
-
-if (localStorage.getItem("stUG2Price")) {
-  upgrade2Price = parseInt(localStorage.getItem("stUG2Price"));
-}
-
-if (localStorage.getItem("stUG3Price")) {
-  upgrade3Price = parseInt(localStorage.getItem("stUG3Price"));
-}
-
-if (localStorage.getItem("stCommisNumber")) {
-  commisNumber = parseInt(localStorage.getItem("stCommisNumber"));
-}
-
-if (localStorage.getItem("stPatisserNumber")) {
-  patissierNumber = parseInt(localStorage.getItem("stPatisserNumber"));
-}
-
-if (localStorage.getItem("stChefNumber")) {
-  chefNumber = parseInt(localStorage.getItem("stChefNumber"));
-}
-
-if (localStorage.getItem("stClic")) {
-  clicValue = parseInt(localStorage.getItem("stClic"));
-  curseurRestart();
-}
-
-if (localStorage.getItem("StCommisValue")) {
-  commisValue = parseInt(localStorage.getItem("StCommisValue"));
-  for (let i = 0; i < chefNumber; i++) {
-    commisRestart();
-  }
-}
-
-if (localStorage.getItem("stPatissierValue")) {
-  patissierValue = parseInt(localStorage.getItem("stPatissierValue"));
-  patissierRestart();
-}
-
-if (localStorage.getItem("stChefValue")) {
-  chefValue = parseInt(localStorage.getItem("stChefValue"));
-  chefRestart();
-}
-
-if (localStorage.getItem("stClic")) {
-  clicValue = parseInt(localStorage.getItem("stClic"));
-  curseurRestart();
-}
+setInterval(() => refeshScore(), 100);
