@@ -15,6 +15,12 @@ promptWindow.classList.add("invisible");
 //Input du nom de la boulangerie
 const bakeryName = document.querySelector("#bakeryName");
 
+//Fermeture du prompt
+function closePrompt() {
+  promptWindow.classList.add("invisible");
+  background.classList.add("invisible");
+}
+
 //Cliquer sur le nom de la boulangerie affiche un prompt pour le changer
 bakery.addEventListener("click", function () {
   promptWindow.classList.remove("invisible");
@@ -25,8 +31,8 @@ bakery.addEventListener("click", function () {
 bakeryName.addEventListener("keyup", function (event) {
   if (event.key === "Enter" && bakeryName.value !== "") {
     bakery.innerHTML = bakeryName.value;
-    promptWindow.classList.add("invisible");
-    background.classList.add("invisible");
+    closePrompt();
+    localStorage.setItem("storedName", bakeryName.value);
   }
 });
 
@@ -37,8 +43,8 @@ const confirmButton = document.querySelector(".confirm");
 confirmButton.addEventListener("click", function () {
   if (bakeryName.value !== "") {
     bakery.innerHTML = bakeryName.value;
-    promptWindow.classList.add("invisible");
-    background.classList.add("invisible");
+    closePrompt();
+    localStorage.setItem("storedName", bakeryName.value);
   }
 });
 
@@ -46,20 +52,14 @@ confirmButton.addEventListener("click", function () {
 const cancelButton = document.querySelector(".cancel");
 
 //Appuyer sur le bouton ferme le prompt
-cancelButton.addEventListener("click", function () {
-  promptWindow.classList.add("invisible");
-  background.classList.add("invisible");
-});
+cancelButton.addEventListener("click", closePrompt);
 
 //Filtre qui floute l'arrière-plan du prompt
 const background = document.querySelector(".background");
 background.classList.add("invisible");
 
 //Quand on clique sur l'arrière-plan on ferme le prompt
-background.addEventListener("click", function () {
-  promptWindow.classList.add("invisible");
-  background.classList.add("invisible");
-});
+background.addEventListener("click", closePrompt);
 
 //----------------------------Cedric-------------------------------------------//
 
@@ -141,6 +141,10 @@ function mutltiplicateurEnabler() {
   }
 }
 
+const curseurRestart = () => {
+  curseurValue();
+  mutltiplicateurEnabler();
+};
 //----------------------------------------------------------------Code commis
 function commisName() {
   commisInfo.innerHTML = `Cuisine ${commisValue} choco/s. prix: ${commisPrice} `;
@@ -164,6 +168,16 @@ function commisEnabler() {
     commis.disabled = true;
   }
 }
+
+const commisRestart = () => {
+  commisEnabler();
+  commisName();
+  for (let i = 0; i < commisNumber; i++) {
+    setInterval(() => {
+      score += commisValue;
+    }, 1000);
+  }
+};
 //---------------------------------------------------------------------- Fin Commis
 
 // ----------------------------------------------------------------------patissier
@@ -188,6 +202,16 @@ function patissierWorks() {
     score = score + patissierValue;
   }, 1000);
 }
+
+const patissierRestart = () => {
+  patissierEnabler();
+  patissierName();
+  for (let i = 0; i < patissierNumber; i++) {
+    setInterval(() => {
+      score = score + patissierValue;
+    }, 1000);
+  }
+};
 //---------------------------------------------------------------------------- fin Patissier
 
 //-------------------------------------------------------------------------------- Chef
@@ -212,6 +236,17 @@ function chefEnabler() {
     chef.disabled = true;
   }
 }
+
+const chefRestart = () => {
+  chefEnabler();
+  chefName();
+  for (let i = 0; i < chefNumber; i++) {
+    setInterval(() => {
+      score = score + chefValue;
+    }, 1000);
+  }
+};
+
 // ----------------------------------------------------------------------------fin du chef
 
 //---------------------------------------------------------------------------------upgrade 1
@@ -234,6 +269,10 @@ function upgrade1Enabler() {
   }
 }
 
+const upgrade1Restart = () => {
+  upgrade1Name();
+  upgrade1Enabler();
+};
 //-------------------------------------------------------------------------------------fin upgrade 1
 //---------------------------------------------------------------------------------------upgrade2
 
@@ -254,6 +293,10 @@ function upgrade2Enabler() {
   }
 }
 
+const upgrade2Restart = () => {
+  upgrade2Name();
+  upgrade2Enabler();
+};
 //------------------------------------------------------------------------------------fin de l'upgrade 2
 //----------------------------------------------------------------------------------- upgrade 3
 upgrade3Name();
@@ -274,6 +317,10 @@ function upgrade3Enabler() {
   }
 }
 
+const upgrade3Restart = () => {
+  upgrade3Name();
+  upgrade3Enabler();
+};
 //----------------------------------------------------------------------------------------Fin upgrade 3
 setInterval(() => refreshValue(), 50);
 setInterval(() => EnablerAll(), 50);
@@ -318,3 +365,103 @@ chef.addEventListener("click", chefWorks);
 upgrade1.addEventListener("click", upgradecommis);
 upgrade2.addEventListener("click", upgradepatissier);
 upgrade3.addEventListener("click", upgradechef);
+
+//------------------------- Local Storage -----------------------------------//
+
+setInterval(() => {
+  localStorage.setItem("stScore", score);
+  localStorage.setItem("stClic", clicValue);
+  localStorage.setItem("stUDPrice", updatePrice);
+  localStorage.setItem("stCurseurNumber", curseurNumber);
+  localStorage.setItem("stCommisValue", commisValue);
+  localStorage.setItem("stPatissierValue", patissierValue);
+  localStorage.setItem("stChefValue", chefValue);
+  localStorage.setItem("stCommisPrice", commisPrice);
+  localStorage.setItem("stPatissierPrice", patissierPrice);
+  localStorage.setItem("stChefPrice", chefPrice);
+  localStorage.setItem("stUG1Price", upgrade1Price);
+  localStorage.setItem("stUG2Price", upgrade2Price);
+  localStorage.setItem("stUG3Price", upgrade3Price);
+  localStorage.setItem("stCommisNumber", commisNumber);
+  localStorage.setItem("stPatissierNumber", patissierNumber);
+  localStorage.setItem("stChefNumber", chefNumber);
+}, 10000);
+
+if (localStorage.getItem("storedName")) {
+  bakery.innerHTML = localStorage.getItem("storedName");
+}
+
+if (localStorage.getItem("stScore")) {
+  score = parseInt(localStorage.getItem("stScore"));
+}
+
+if (localStorage.getItem("stUDPrice")) {
+  updatePrice = parseInt(localStorage.getItem("stUDPrice"));
+}
+
+if (localStorage.getItem("stCurseurNumber")) {
+  curseurNumber = parseInt(localStorage.getItem("stCurseurNumber"));
+}
+
+if (localStorage.getItem("stCommisPrice")) {
+  commisPrice = parseInt(localStorage.getItem("stCommisPrice"));
+}
+
+if (localStorage.getItem("stPatissierPrice")) {
+  patissierPrice = parseInt(localStorage.getItem("stPatissierPrice"));
+}
+
+if (localStorage.getItem("stChefPrice")) {
+  chefPrice = parseInt(localStorage.getItem("stChefPrice"));
+}
+
+if (localStorage.getItem("stUG1Price")) {
+  upgrade1Price = parseInt(localStorage.getItem("stUG1Price"));
+}
+
+if (localStorage.getItem("stUG2Price")) {
+  upgrade2Price = parseInt(localStorage.getItem("stUG2Price"));
+}
+
+if (localStorage.getItem("stUG3Price")) {
+  upgrade3Price = parseInt(localStorage.getItem("stUG3Price"));
+}
+
+if (localStorage.getItem("stCommisNumber")) {
+  commisNumber = parseInt(localStorage.getItem("stCommisNumber"));
+}
+
+if (localStorage.getItem("stPatisserNumber")) {
+  patissierNumber = parseInt(localStorage.getItem("stPatisserNumber"));
+}
+
+if (localStorage.getItem("stChefNumber")) {
+  chefNumber = parseInt(localStorage.getItem("stChefNumber"));
+}
+
+if (localStorage.getItem("stClic")) {
+  clicValue = parseInt(localStorage.getItem("stClic"));
+  curseurRestart();
+}
+
+if (localStorage.getItem("StCommisValue")) {
+  commisValue = parseInt(localStorage.getItem("StCommisValue"));
+  for (let i = 0; i < chefNumber; i++) {
+    commisRestart();
+  }
+}
+
+if (localStorage.getItem("stPatissierValue")) {
+  patissierValue = parseInt(localStorage.getItem("stPatissierValue"));
+  patissierRestart();
+}
+
+if (localStorage.getItem("stChefValue")) {
+  chefValue = parseInt(localStorage.getItem("stChefValue"));
+  chefRestart();
+}
+
+if (localStorage.getItem("stClic")) {
+  clicValue = parseInt(localStorage.getItem("stClic"));
+  curseurRestart();
+}

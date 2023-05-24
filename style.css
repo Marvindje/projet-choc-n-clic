@@ -184,7 +184,6 @@ navbar .help:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .window .bakery {
@@ -195,7 +194,6 @@ navbar .help:hover {
   text-align: center;
   margin-top: 0.75em;
   cursor: pointer;
-
 }
 
 .window .bakery:hover {
@@ -338,7 +336,7 @@ navbar .help:hover {
 
 footer {
   position: absolute;
-  bottom:  0 ;
+  bottom: 0;
   background: var(--choco-shade);
   width: 100%;
   height: 2.5em;
