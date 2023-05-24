@@ -206,7 +206,7 @@ function patissierWorks() {
 
 //-------------------------------------------------------------------------------- Chef
 function chefName() {
-  chefInfo.innerHTML = `Cuisine <span style="color: purple;">${chefValue}</span> choco/s. prix: ${chefPrice}  `;
+  chefInfo.innerHTML = `Cuisine <span style="color: #2e294e; font-weight: bold;">${chefValue}</span> choco/s. prix: ${chefPrice}  `;
   chefNb.innerHTML = `${chefNumber}`;
 }
 

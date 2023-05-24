@@ -433,3 +433,34 @@ footer {
   align-items: center;
   font-size: 0.7em;
 }
+
+@media screen and (min-width: 1024px) {
+  .container {
+    flex-direction: row;
+    height: 89.5vh;
+    align-items: center;
+  }
+
+  .window {
+    height: 100%;
+    width: 50vw;
+  }
+  .window .bakery {
+    height: 20%;
+  }
+  .window #clic {
+    height: 50%;
+    width: 50%;
+  }
+
+  .shop {
+    height: 100%;
+    width: 50vw;
+  }
+  .upgrade {
+    height: 20%;
+  }
+  .worker {
+    height: 80%;
+  }
+}
