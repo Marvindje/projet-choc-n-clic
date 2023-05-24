@@ -84,7 +84,7 @@ const upgrade1Cost = document.querySelector("#upgrade1cost");
 const upgrade2Cost = document.querySelector("#upgrade2cost");
 const upgrade3Cost = document.querySelector("#upgrade3cost");
 
-let score = 20000000;
+let score = 200000;
 let clicValue = 1;
 let updatePrice = 10;
 let curseurNumber = 0;
