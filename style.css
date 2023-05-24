@@ -220,6 +220,12 @@ navbar .help:hover {
   border: none;
   margin: auto;
   cursor: pointer;
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+
+.window #clic:hover {
+  transform: scale(1.25);
 }
 
 #clic img {
