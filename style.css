@@ -312,6 +312,7 @@ navbar .help:hover {
   height: 5em;
   padding: 2em;
   border: none;
+  border-radius: 8px;
 }
 .upgrade button.disabled {
   margin: 0.5em;
@@ -320,6 +321,7 @@ navbar .help:hover {
   padding: 2em;
   opacity: 0.3;
   border: none;
+  border-radius: 8px;
 }
 #upgrade1 {
   background-image: url(./Maquettes/upgrade-1.png);
