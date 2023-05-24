@@ -83,8 +83,12 @@ const chefNb = document.querySelector("#chefnb");
 const upgrade1Cost = document.querySelector("#upgrade1cost");
 const upgrade2Cost = document.querySelector("#upgrade2cost");
 const upgrade3Cost = document.querySelector("#upgrade3cost");
+const curseurCost = document.querySelector("#curseurcost");
+const commisCost = document.querySelector("#commiscost");
+const patissierCost = document.querySelector("#patissiercost");
+const chefCost = document.querySelector("#chefcost");
 
-let score = 0;
+let score = 2000000000;
 let clicValue = 1;
 let updatePrice = 10;
 let curseurNumber = 0;
@@ -129,7 +133,8 @@ function curseurIncrease() {
 }
 
 function curseurValue() {
-  curseurInfo.innerHTML = `  Un clic rapporte ${clicValue} prix: ${updatePrice}   `;
+  curseurInfo.innerHTML = `  Un clic rapporte ${clicValue}`;
+  curseurCost.innerHTML = ` Prix: ${updatePrice}`;
   curseurNb.innerHTML = ` ${curseurNumber}`;
 }
 
@@ -147,7 +152,8 @@ const curseurRestart = () => {
 };
 //----------------------------------------------------------------Code commis
 function commisName() {
-  commisInfo.innerHTML = `Cuisine ${commisValue} choco/s. prix: ${commisPrice} `;
+  commisInfo.innerHTML = `Cuisine ${commisValue} choco/s.`;
+  commisCost.innerHTML = `Prix: ${commisPrice}`;
   commisNb.innerHTML = `${commisNumber}`;
 }
 
@@ -155,10 +161,6 @@ function commisWorks() {
   score -= commisPrice;
   commisPrice = commisPrice * 2;
   commisNumber += 1;
-  // commisName();
-  // setInterval(() => {
-  //   score += commisValue;
-  // }, 1000);
 }
 
 function commisEnabler() {
@@ -182,7 +184,8 @@ const commisRestart = () => {
 
 // ----------------------------------------------------------------------patissier
 function patissierName() {
-  patissierInfo.innerHTML = ` Cuisine ${patissierValue}choco/s. prix:${patissierPrice} `;
+  patissierInfo.innerHTML = `Cuisine ${patissierValue} choco/s.`;
+  patissierCost.innerHTML = `Prix: ${patissierPrice}`;
   patissierNb.innerHTML = `${patissierNumber}`;
 }
 function patissierEnabler() {
@@ -197,16 +200,13 @@ function patissierWorks() {
   score -= patissierPrice;
   patissierPrice = patissierPrice * 2;
   patissierNumber += 1;
-  // patissierName();
-  // setInterval(() => {
-  //   score = score + patissierValue;
-  // }, 1000);
 }
 //---------------------------------------------------------------------------- fin Patissier
 
 //-------------------------------------------------------------------------------- Chef
 function chefName() {
-  chefInfo.innerHTML = `Cuisine <span style="color: #2e294e; font-weight: bold">${chefValue}</span> choco/s. prix: ${chefPrice}  `;
+  chefInfo.innerHTML = `Cuisine ${chefValue} choco/s.`;
+  chefCost.innerHTML = `Prix: ${chefPrice}`;
   chefNb.innerHTML = `${chefNumber}`;
 }
 
@@ -214,10 +214,6 @@ function chefWorks() {
   score -= chefPrice;
   chefPrice = chefPrice * 2;
   chefNumber += +1;
-  // chefName();
-  //   setInterval(() => {
-  //     score = score + chefValue;
-  //   }, 1000);
 }
 function chefEnabler() {
   if (score >= chefPrice) {
@@ -240,17 +236,14 @@ const chefRestart = () => {
 // ----------------------------------------------------------------------------fin du chef
 
 //---------------------------------------------------------------------------------upgrade 1
-
 function upgrade1Name() {
   upgrade1Cost.innerHTML = ` ${upgrade1Price} `;
 }
-
 function upgradecommis() {
   score -= upgrade1Price;
   commisValue += 1;
   upgrade1Price = upgrade1Price * 2;
 }
-
 function upgrade1Enabler() {
   if (score >= upgrade1Price && commisNumber >= 1) {
     upgrade1.disabled = false;
@@ -297,7 +290,6 @@ function upgradechef() {
   score -= upgrade3Price;
   chefValue += 1;
   upgrade3Price = upgrade3Price * 2;
-  // refreshValue();
 }
 function upgrade3Enabler() {
   if (score >= upgrade3Price && chefNumber >= 1) {
@@ -312,9 +304,6 @@ const upgrade3Restart = () => {
   upgrade3Enabler();
 };
 //----------------------------------------------------------------------------------------Fin upgrade 3
-setInterval(() => refreshValue(), 1);
-setInterval(() => EnablerAll(), 1);
-
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
 function EnablerAll() {
   mutltiplicateurEnabler();
@@ -325,106 +314,8 @@ function EnablerAll() {
   upgrade2Enabler();
   upgrade3Enabler();
 }
+setInterval(() => EnablerAll(), 1);
 //------------------------------------------------------------------------------Check toute les value des boutons
-function refreshValue() {
-  compteurScore();
-  curseurValue();
-  commisName();
-  patissierName();
-  chefName();
-  upgrade1Name();
-  upgrade2Name();
-  upgrade3Name();
-}
-//------------------------------------------------------------------------------Check toute les value des boutons des le debut de la page
-
-refreshValue();
-EnablerAll();
-commisName();
-patissierName();
-chefName();
-upgrade1Name();
-upgrade2Name();
-upgrade3Name();
-
-//------------------------------------------------------------------------------function pour changer la class css des boutons selon si il sont activer ou desactiver
-function commisStyle() {
-  if (commis.disabled) {
-    commis.classList.add("disabled");
-  } else {
-    commis.classList.remove("disabled");
-  }
-}
-
-function patissierStyle() {
-  if (patissier.disabled) {
-    patissier.classList.add("disabled");
-  } else {
-    patissier.classList.remove("disabled");
-  }
-}
-
-function chefStyle() {
-  if (chef.disabled) {
-    chef.classList.add("disabled");
-  } else {
-    chef.classList.remove("disabled");
-  }
-}
-function curseurStyle() {
-  if (curseur.disabled) {
-    curseur.classList.add("disabled");
-  } else {
-    curseur.classList.remove("disabled");
-  }
-}
-function upgrade1Style() {
-  if (upgrade1.disabled) {
-    upgrade1.classList.add("disabled");
-  } else {
-    upgrade1.classList.remove("disabled");
-  }
-}
-
-function upgrade2Style() {
-  if (upgrade2.disabled) {
-    upgrade2.classList.add("disabled");
-  } else {
-    upgrade2.classList.remove("disabled");
-  }
-}
-
-function upgrade3Style() {
-  if (upgrade3.disabled) {
-    upgrade3.classList.add("disabled");
-  } else {
-    upgrade3.classList.remove("disabled");
-  }
-}
-
-//------------------------------------------------------------------------------regouprer les changement de class dans une seul fonction pour intervalle
-function changeStyle() {
-  commisStyle();
-  patissierStyle();
-  curseurStyle();
-  chefStyle();
-  upgrade1Style();
-  upgrade2Style();
-  upgrade3Style();
-}
-
-setInterval(() => changeStyle(), 50);
-
-//--------------------------------------------------------------------------------------Event
-clic.addEventListener("click", scoreIncrease);
-curseur.addEventListener("click", curseurIncrease);
-commis.addEventListener("click", commisWorks);
-patissier.addEventListener("click", patissierWorks);
-chef.addEventListener("click", chefWorks);
-upgrade1.addEventListener("click", upgradecommis);
-upgrade2.addEventListener("click", upgradepatissier);
-upgrade3.addEventListener("click", upgradechef);
-
 function refeshScore() {
   score =
     score +
@@ -435,5 +326,45 @@ function refeshScore() {
         10
     );
 }
-
 setInterval(() => refeshScore(), 100);
+//
+function refreshValue() {
+  compteurScore();
+  curseurValue();
+  commisName();
+  patissierName();
+  chefName();
+  upgrade1Name();
+  upgrade2Name();
+  upgrade3Name();
+}
+setInterval(() => refreshValue(), 1);
+//active et desactive les boutons
+function setStyle(button, disabled) {
+  if (disabled) {
+    button.classList.add("disabled");
+  } else {
+    button.classList.remove("disabled");
+  }
+}
+function buttonStyle() {
+  setStyle(commis, commis.disabled);
+  setStyle(patissier, patissier.disabled);
+  setStyle(chef, chef.disabled);
+  setStyle(curseur, curseur.disabled);
+  setStyle(upgrade1, upgrade1.disabled);
+  setStyle(upgrade2, upgrade2.disabled);
+  setStyle(upgrade3, upgrade3.disabled);
+}
+
+setInterval(() => buttonStyle(), 50);
+
+//--------------------------------------------------------------------------------------Event
+clic.addEventListener("click", scoreIncrease);
+curseur.addEventListener("click", curseurIncrease);
+commis.addEventListener("click", commisWorks);
+patissier.addEventListener("click", patissierWorks);
+chef.addEventListener("click", chefWorks);
+upgrade1.addEventListener("click", upgradecommis);
+upgrade2.addEventListener("click", upgradepatissier);
+upgrade3.addEventListener("click", upgradechef);
