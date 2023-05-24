@@ -84,13 +84,13 @@ const upgrade1Cost = document.querySelector("#upgrade1cost");
 const upgrade2Cost = document.querySelector("#upgrade2cost");
 const upgrade3Cost = document.querySelector("#upgrade3cost");
 
-let score = 0;
+let score = 20000000;
 let clicValue = 1;
 let updatePrice = 10;
 let curseurNumber = 0;
-let commisValue = 1;
-let patissierValue = 1;
-let chefValue = 1;
+let commisValue = 10;
+let patissierValue = 10;
+let chefValue = 10;
 let commisPrice = 50;
 let patissierPrice = 50;
 let chefPrice = 50;
@@ -151,10 +151,10 @@ function commisWorks() {
   score -= commisPrice;
   commisPrice = commisPrice * 2;
   commisNumber += 1;
-  commisName();
-  setInterval(() => {
-    score += commisValue;
-  }, 1000);
+  // commisName();
+  // setInterval(() => {
+  //   score += commisValue;
+  // }, 1000);
 }
 
 function commisEnabler() {
@@ -183,16 +183,16 @@ function patissierWorks() {
   score -= patissierPrice;
   patissierPrice = patissierPrice * 2;
   patissierNumber += 1;
-  patissierName();
-  setInterval(() => {
-    score = score + patissierValue;
-  }, 1000);
+  // patissierName();
+  // setInterval(() => {
+  //   score = score + patissierValue;
+  // }, 1000);
 }
 //---------------------------------------------------------------------------- fin Patissier
 
 //-------------------------------------------------------------------------------- Chef
 function chefName() {
-  chefInfo.innerHTML = `Cuisine ${chefValue} choco/s. prix:${chefPrice} `;
+  chefInfo.innerHTML = `Cuisine <span style="color: purple;">${chefValue}</span> choco/s. prix: ${chefPrice}  `;
   chefNb.innerHTML = `${chefNumber}`;
 }
 
@@ -200,10 +200,10 @@ function chefWorks() {
   score -= chefPrice;
   chefPrice = chefPrice * 2;
   chefNumber += +1;
-  chefName();
-  setInterval(() => {
-    score = score + chefValue;
-  }, 1000);
+  // chefName();
+  //   setInterval(() => {
+  //     score = score + chefValue;
+  //   }, 1000);
 }
 function chefEnabler() {
   if (score >= chefPrice) {
@@ -217,7 +217,7 @@ function chefEnabler() {
 //---------------------------------------------------------------------------------upgrade 1
 
 function upgrade1Name() {
-  upgrade1Cost.innerHTML = `prix: ${upgrade1Price} `;
+  upgrade1Cost.innerHTML = ` ${upgrade1Price} `;
 }
 
 function upgradecommis() {
@@ -238,7 +238,7 @@ function upgrade1Enabler() {
 //---------------------------------------------------------------------------------------upgrade2
 
 function upgrade2Name() {
-  upgrade2Cost.innerHTML = ` prix: ${upgrade2Price} `;
+  upgrade2Cost.innerHTML = ` ${upgrade2Price} `;
 }
 function upgradepatissier() {
   score -= upgrade2Price;
@@ -258,13 +258,13 @@ function upgrade2Enabler() {
 //----------------------------------------------------------------------------------- upgrade 3
 upgrade3Name();
 function upgrade3Name() {
-  upgrade3Cost.innerHTML = ` prix ${upgrade3Price} `;
+  upgrade3Cost.innerHTML = `  ${upgrade3Price} `;
 }
 function upgradechef() {
   score -= upgrade3Price;
   chefValue += 1;
   upgrade3Price = upgrade3Price * 2;
-  refreshValue();
+  // refreshValue();
 }
 function upgrade3Enabler() {
   if (score >= upgrade3Price && chefNumber >= 1) {
@@ -310,7 +310,7 @@ upgrade1Name();
 upgrade2Name();
 upgrade3Name();
 
-//------------------------------------------------------------------------------function pour changer la class css des boutons
+//------------------------------------------------------------------------------function pour changer la class css des boutons selon si il sont activer ou desactiver
 function commisStyle() {
   if (commis.disabled) {
     commis.classList.add("disabled");
@@ -341,12 +341,39 @@ function curseurStyle() {
     curseur.classList.remove("disabled");
   }
 }
+function upgrade1Style() {
+  if (upgrade1.disabled) {
+    upgrade1.classList.add("disabled");
+  } else {
+    upgrade1.classList.remove("disabled");
+  }
+}
+
+function upgrade2Style() {
+  if (upgrade2.disabled) {
+    upgrade2.classList.add("disabled");
+  } else {
+    upgrade2.classList.remove("disabled");
+  }
+}
+
+function upgrade3Style() {
+  if (upgrade3.disabled) {
+    upgrade3.classList.add("disabled");
+  } else {
+    upgrade3.classList.remove("disabled");
+  }
+}
+
 //------------------------------------------------------------------------------regouprer les changement de class dans une seul fonction pour intervalle
 function changeStyle() {
   commisStyle();
   patissierStyle();
   curseurStyle();
   chefStyle();
+  upgrade1Style();
+  upgrade2Style();
+  upgrade3Style();
 }
 
 setInterval(() => changeStyle(), 50);
@@ -360,3 +387,16 @@ chef.addEventListener("click", chefWorks);
 upgrade1.addEventListener("click", upgradecommis);
 upgrade2.addEventListener("click", upgradepatissier);
 upgrade3.addEventListener("click", upgradechef);
+
+function refeshScore() {
+  score =
+    score +
+    Math.trunc(
+      (patissierValue * patissierNumber +
+        chefValue * chefNumber +
+        commisValue * commisNumber) /
+        10
+    );
+}
+
+setInterval(() => refeshScore(), 100);
