@@ -83,8 +83,12 @@ const chefNb = document.querySelector("#chefnb");
 const upgrade1Cost = document.querySelector("#upgrade1cost");
 const upgrade2Cost = document.querySelector("#upgrade2cost");
 const upgrade3Cost = document.querySelector("#upgrade3cost");
+const curseurCost = document.querySelector("#curseurcost");
+const commisCost = document.querySelector("#commiscost");
+const patissierCost = document.querySelector("#patissiercost");
+const chefCost = document.querySelector("#chefcost");
 
-let score = 0;
+let score = 200000;
 let clicValue = 1;
 let updatePrice = 10;
 let curseurNumber = 0;
@@ -129,7 +133,8 @@ function curseurIncrease() {
 }
 
 function curseurValue() {
-  curseurInfo.innerHTML = `  Un clic rapporte ${clicValue} prix: ${updatePrice}   `;
+  curseurInfo.innerHTML = `  Un clic rapporte ${clicValue}`;
+  curseurCost.innerHTML = ` Prix: ${updatePrice}`;
   curseurNb.innerHTML = ` ${curseurNumber}`;
 }
 
@@ -147,7 +152,8 @@ const curseurRestart = () => {
 };
 //----------------------------------------------------------------Code commis
 function commisName() {
-  commisInfo.innerHTML = `Cuisine ${commisValue} choco/s. prix: ${commisPrice} `;
+  commisInfo.innerHTML = `Cuisine ${commisValue} choco/s.`;
+  commisCost.innerHTML = `Prix: ${commisPrice}`;
   commisNb.innerHTML = `${commisNumber}`;
 }
 
@@ -182,7 +188,8 @@ const commisRestart = () => {
 
 // ----------------------------------------------------------------------patissier
 function patissierName() {
-  patissierInfo.innerHTML = ` Cuisine ${patissierValue}choco/s. prix:${patissierPrice} `;
+  patissierInfo.innerHTML = `Cuisine ${patissierValue} choco/s.`;
+  patissierCost.innerHTML = `Prix: ${patissierPrice}`;
   patissierNb.innerHTML = `${patissierNumber}`;
 }
 function patissierEnabler() {
@@ -206,7 +213,8 @@ function patissierWorks() {
 
 //-------------------------------------------------------------------------------- Chef
 function chefName() {
-  chefInfo.innerHTML = `Cuisine <span style="color: #2e294e; font-weight: bold">${chefValue}</span> choco/s. prix: ${chefPrice}  `;
+  chefInfo.innerHTML = `Cuisine ${chefValue} choco/s.`;
+  chefCost.innerHTML = `Prix: ${chefPrice}`;
   chefNb.innerHTML = `${chefNumber}`;
 }
 

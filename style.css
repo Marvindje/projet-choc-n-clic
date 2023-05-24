@@ -307,7 +307,7 @@ navbar .help:hover {
   justify-content: space-around;
   align-items: center;
   background: var(--yellow-choco);
-  border-radius: 8px;
+  border-radius: 15px;
   width: 90%;
   height: 20%;
 }
@@ -315,19 +315,20 @@ navbar .help:hover {
   position: relative;
   color: var(--text-color);
   font-family: var(--main-title);
-  width: 25%;
+  width: 20%;
   height: 80%;
   border: none;
-  border-radius: 8px;
+  border-radius: 15px;
 }
 .upgrade button.disabled {
   opacity: 0.4;
+
 }
 #upgrade1 {
-  background-image: url(/Maquettes/upgrade-1.png);
+  background-image: url(./Maquettes/upgrade-1.png);
   background-size: 100% 100%;
+  
 }
-
 #upgrade1cost {
   position: absolute;
   bottom: 0;
@@ -369,7 +370,6 @@ navbar .help:hover {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  /* margin: 0.5em 0.7em; */
   height: 20%;
   border-radius: 15px;
   background: var(--choco-shade);
@@ -380,16 +380,19 @@ navbar .help:hover {
 .worker button.disabled {
   opacity: 0.5;
 }
-.worker img {
-  margin-left: 0.5em;
-  object-fit: contain;
-}
 
+.worker img {
+  height:80%;
+}
+#hand {
+  height: 50%;
+}
 .centerbutton {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  font-size: 1.8vh;
 }
+
 .titlebutton {
   font-family: var(--main-title);
 }
@@ -452,5 +455,8 @@ footer {
   .upgrade {
     width: 80%;
     margin-top: 7%;
+  }
+  .prompt{
+    width: 50%;
   }
 }
