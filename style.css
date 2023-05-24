@@ -190,7 +190,6 @@ navbar .help:hover {
 }
 
 .window .bakery {
-
   font-family: var(--main-title);
   font-size: 3em;
   color: var(--text-color);
@@ -218,6 +217,13 @@ navbar .help:hover {
   border: none;
   margin: auto;
   cursor: pointer;
+  transition: all 0.5s ease;
+  transform: scale(1);
+}
+
+.window #clic:hover {
+  transform: scale(1.25);
+  filter: brightness(120%);
 }
 
 #clic img {
@@ -320,12 +326,10 @@ navbar .help:hover {
 }
 .upgrade button.disabled {
   opacity: 0.4;
-
 }
 #upgrade1 {
   background-image: url(./Maquettes/upgrade-1.png);
   background-size: 100% 100%;
-  
 }
 #upgrade1cost {
   position: absolute;
@@ -380,7 +384,7 @@ navbar .help:hover {
 }
 
 .worker img {
-  height:80%;
+  height: 80%;
 }
 #hand {
   height: 50%;
@@ -451,10 +455,24 @@ footer {
   }
 
   .upgrade {
-    width: 80%;
-    margin-top: 7%;
+    width: 70%;
+    height: 30%;
+    margin-top: 3%;
+    background: var(--choco-shade);
   }
-  .prompt{
+
+  .worker {
+    height: 70%;
+    width: 95%;
+    background: var(--choco-shade);
+    margin: 2%;
+  }
+
+  .worker button {
+    background: var(--main-color);
+  }
+
+  .prompt {
     width: 50%;
   }
 }
