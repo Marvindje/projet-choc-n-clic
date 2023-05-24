@@ -88,7 +88,7 @@ const commisCost = document.querySelector("#commiscost");
 const patissierCost = document.querySelector("#patissiercost");
 const chefCost = document.querySelector("#chefcost");
 
-let score = 2000000000;
+let score = 0;
 let clicValue = 1;
 let updatePrice = 10;
 let curseurNumber = 0;
@@ -368,5 +368,3 @@ chef.addEventListener("click", chefWorks);
 upgrade1.addEventListener("click", upgradecommis);
 upgrade2.addEventListener("click", upgradepatissier);
 upgrade3.addEventListener("click", upgradechef);
-
-gnklngklenglknlkzeng;
