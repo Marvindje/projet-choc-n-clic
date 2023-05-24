@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Choc'n Clic</title>
+  </head>
+  <body>
+    <!-- navbar -->
+    <navbar>
+      <a class="logo">
+        <img src="./Maquettes/logo-choc-n-clic.png" alt="logo" />
+      </a>
+      <h1>Choc'n clic</h1>
+
+      <button onclick="togglePopup()" class="help">?</button>
+
+      <div id="popup-overlay">
+        <div class="popup-content">
+          <h3>Règle du jeu</h3>
+          <h4>Le jeu est très simple :</h4>
+          <p>
+            Préparez le plus de chocolatines possible en cliquant sur ou en
+            touchant la chocolatine géante le plus rapidement possible. <br />
+            Dès que vous avez suffisamment de chocolatines, allez à la boutique
+            et utilisez-les pour acheter des améliorations et cuisiner encore
+            plus rapidement !
+          </p>
+
+          <a
+            href="javascript:void(0)"
+            onclick="togglePopup()"
+            class="popup-exit"
+          >
+            X
+          </a>
+        </div>
+      </div>
+    </navbar>
+    <!-- fin de la nav bar -->
+    <!------------------------------- section -------------------------------------------->
+    <section class="container">
+      <!------------------------------- premiere bloc ------------------------------->
+      <div class="window">
+        <div class="background"></div>
+        <div class="prompt">
+          <div id="questionBlock">What's the name of your bakery ?</div>
+          <input
+            type="text"
+            id="bakeryName"
+            value="Wilder's Bakery"
+            maxlength="40"
+          />
+          <div class="buttonDisplay">
+            <button class="confirm">✔️</button>
+            <button class="cancel">❌</button>
+          </div>
+        </div>
+        <div class="bakery">Wilder's bakery</div>
+        <div id="compteur">0 Chocos</div>
+        <button id="clic">
+          <img src="./Maquettes/chocolatine-clickers.png" alt="" />
+        </button>
+      </div>
+      <!----------------------------------- deuxieme bloc ------------------------------->
+      <div class="shop">
+        <!-- ---------- premiere div du second bloc  ----------- -->
+        <div class="upgrade">
+          <button id="upgrade1">
+            <!-- <p id="name1upgrade">upgrade</p> -->
+            <p id="upgrade1cost"></p>
+          </button>
+          <button id="upgrade2">
+            <!-- <p id="name2upgrade">upgrade</p> -->
+            <p id="upgrade2cost"></p>
+          </button>
+          <button id="upgrade3">
+            <!-- <p id="name3upgrade">upgrade</p> -->
+            <p id="upgrade3cost"></p>
+          </button>
+        </div>
+        <!-- ---------- deuxieme div  second bloc  ----------- -->
+        <div class="worker">
+          <button id="curseur">
+            <img
+              id="hand"
+              src="./Maquettes/curseur.png"
+              width=""
+              height=""
+              alt=""
+            />
+            <div class="centerbutton">
+              <p class="titlebutton">Curseur</p>
+              <p  id="curseurinfo"></p>
+              <p  id="curseurcost"></p>
+            </div>
+            <p id="curseurnb"></p>
+          </button>
+          <button id="commis">
+            <img
+              src="./Maquettes/Apprentis.png"
+              width=""
+              height=""
+              alt=""
+            />
+            <div class="centerbutton">
+              <p class="titlebutton">Commis</p>
+              <p id="commisinfo"></p>
+              <p  id="commiscost"></p>
+            </div>
+            <p id="commisnb"></p>
+          </button>
+          <button id="patissier">
+            <img
+              src="./Maquettes/patissier.png"
+              width=""
+              height=""
+              alt=""
+            />
+            <div class="centerbutton">
+              <p class="titlebutton">Patissier</p>
+              <p id="patissierinfo"></p>
+              <p  id="patissiercost"></p>
+            </div>
+            <p id="patissiernb"></p>
+          </button>
+          <button id="chef">
+            <img src="./Maquettes/chef.png" width="" height="" alt="" />
+            <div class="centerbutton">
+              <p class="titlebutton">Chef</p>
+              <p id="chefinfo"></p>
+              <p id="chefcost"></p>
+            </div>
+            <p id="chefnb"></p>
+          </button>
+        </div>
+      </div>
+    </section>
+    <footer>
+      <div class="footer-bottom">
+        copyright &copy; Wilders, 2023, designed by awesome Wilders
+      </div>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
