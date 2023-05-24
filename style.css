@@ -20,7 +20,6 @@ body {
   font-family: var(--text);
   color: var(--text-color);
   font-size: 100%;
-  /* position: relative; */
 }
 
 :root {
@@ -70,7 +69,6 @@ navbar {
   align-items: center;
   height: 7%;
   background: var(--choco-shade);
-  /* padding: 5px 10px; */
   overflow: hidden;
 }
 
@@ -192,7 +190,7 @@ navbar .help:hover {
 }
 
 .window .bakery {
-  /* margin-bottom: 0.5em; */
+
   font-family: var(--main-title);
   font-size: 3em;
   color: var(--text-color);
