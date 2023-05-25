@@ -9,16 +9,17 @@
 html {
   scroll-behavior: smooth;
   box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
 }
 
 body {
-  max-width: 100vw;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
   background: var(--background-color);
   font-family: var(--text);
   color: var(--text-color);
   font-size: 100%;
-  /* position: relative; */
 }
 
 :root {
@@ -170,14 +171,6 @@ navbar .help:hover{
     }
   }
   
-
-
-/*************** HEADER *******************************/
-
-
-
-
-
 /*************** SECTION SKILLS ***********************/
 
 
@@ -188,14 +181,14 @@ navbar .help:hover{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 50px;
+  height: 7%;
   background: var(--choco-shade);
-  padding: 5px 10px;
   overflow: hidden;
 }
 
 navbar .logo img {
   height: 40px;
+  margin-left: 0.7em;
 }
 
 navbar .help {
@@ -211,6 +204,7 @@ navbar .help {
   font-size: 1.8em;
   transition: 300ms;
   text-align: center;
+  margin-right: 0.5em;
 }
 
 navbar .help:hover {
@@ -290,34 +284,32 @@ navbar .help:hover {
     opacity: 1;
   }
 }
-/*************************************Section**************************************************************/
+
 .container {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 90%;
+  width: 100%;
 }
-
-/************************************* Premier bloc **************************************************/
 
 /*************** SECTION WINDOW *******************************/
 
 .window {
-  /* height: 45vh; */
+  height: 45%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-
 }
 
 .window .bakery {
   font-family: var(--main-title);
   font-size: 3em;
   color: var(--text-color);
-  /* width: 80vw; */
   text-align: center;
-  margin-top: 0.75em;
+  margin-top: 0.5em;
   cursor: pointer;
-
 }
 
 .window .bakery:hover {
@@ -333,6 +325,8 @@ navbar .help:hover {
 }
 
 .window #clic {
+  height: 40%;
+  width: 35%;
   padding: 0;
   background: none;
   border: none;
@@ -346,8 +340,8 @@ navbar .help:hover {
 }
 
 #clic img {
-  width: 10em;
-  height: 10em;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
@@ -364,7 +358,7 @@ navbar .help:hover {
   justify-content: center;
   z-index: 999;
   height: 150px;
-  width: 80vw;
+  width: 90%;
   border-radius: 15px;
   gap: 10px;
   background: var(--main-color);
@@ -377,10 +371,9 @@ navbar .help:hover {
 
 .prompt #questionBlock {
   text-align: center;
-  background: var(--choco-shade);
   font-family: var(--text);
-  padding: 0.5em;
-  width: 70%;
+  color: var(--yellow-choco);
+  width: 85%;
   border-radius: 15px;
 }
 
@@ -418,31 +411,87 @@ navbar .help:hover {
 /************************************* deuxieme bloc  **************************************************/
 
 .shop {
+  height: 55%;
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 /****************************** Upgrade */
+.upgrade {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--yellow-choco);
+  border-radius: 15px;
+  width: 90%;
+  height: 20%;
+}
+.upgrade button {
+  position: relative;
+  color: var(--text-color);
+  font-family: var(--main-title);
+  width: 20%;
+  height: 80%;
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.2s ease;
+}
+
+.worker button:active{
+  transform: scale(0.8);
+}
+
+.upgrade button.disabled {
+  opacity: 0.4;
+}
+#upgrade1 {
+  background-image: url(./Maquettes/upgrade-1.png);
+  background-size: 100% 100%;
+}
+#upgrade1cost {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+#upgrade2 {
+  background-image: url(/Maquettes/Upgrade-2.png);
+  background-size: 100% 100%;
+}
+#upgrade2cost {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+#upgrade3 {
+  background-image: url(/Maquettes/uppgrade-3.png);
+  background-size: 100% 100%;
+}
+#upgrade3cost {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
 
 /****************************** Worker */
 .worker {
+  height: 80%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  gap: 2.5%;
   width: 100%;
-  margin: 1em 2em;
   border-radius: 15px;
-
   align-items: center;
 }
 .worker button {
   width: 95%;
   display: flex;
-  flex-direction: row;
   align-items: center;
   justify-content: space-around;
-  margin: 0.5em 0.7em;
-  height: 5em;
+  height: 20%;
   border-radius: 15px;
   background: var(--choco-shade);
   color: #e9e9e9;
@@ -456,27 +505,102 @@ navbar .help:hover {
 
 .worker img {
   margin-left: 1em;
+  border: none;
+}
+.worker button.disabled {
+  opacity: 0.5;
 }
 
+.worker img {
+  height: 80%;
+}
+#hand {
+  height: 50%;
+}
 .centerbutton {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  font-size: 1.8vh;
 }
+
 .titlebutton {
   font-family: var(--main-title);
 }
-
+#curseurnb {
+  font-family: var(--main-title);
+  font-size: large;
+}
+#commisnb {
+  font-family: var(--main-title);
+  font-size: large;
+}
+#patissiernb {
+  font-family: var(--main-title);
+  font-size: large;
+}
+#chefnb {
+  font-family: var(--main-title);
+  font-size: large;
+}
 /******************* FOOTER ****************************/
 
 footer {
-  position: absolute;
-  bottom:  0 ;
+  position: fixed;
+  bottom: 0;
   background: var(--choco-shade);
   width: 100%;
-  height: 2.5em;
+  height: 3%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 0.7em;
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .window {
+    height: 100%;
+  }
+
+  .window .bakery {
+    padding: 0.5em;
+  }
+  .window #clic {
+    height: 40%;
+    width: 60%;
+  }
+
+  .window #clic img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .shop {
+    height: 100%;
+  }
+
+  .upgrade {
+    width: 70%;
+    height: 30%;
+    margin-top: 3%;
+    background: var(--choco-shade);
+  }
+
+  .worker {
+    height: 70%;
+    width: 95%;
+    background: var(--choco-shade);
+    margin: 2%;
+  }
+
+  .worker button {
+    background: var(--main-color);
+  }
+
+  .prompt {
+    width: 50%;
+  }
 }

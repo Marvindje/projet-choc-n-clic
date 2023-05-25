@@ -22,6 +22,12 @@ promptWindow.classList.add("invisible");
 //Input du nom de la boulangerie
 const bakeryName = document.querySelector("#bakeryName");
 
+//Fermeture du prompt
+function closePrompt() {
+  promptWindow.classList.add("invisible");
+  background.classList.add("invisible");
+}
+
 //Cliquer sur le nom de la boulangerie affiche un prompt pour le changer
 bakery.addEventListener("click", function () {
   promptWindow.classList.remove("invisible");
@@ -32,8 +38,8 @@ bakery.addEventListener("click", function () {
 bakeryName.addEventListener("keyup", function (event) {
   if (event.key === "Enter" && bakeryName.value !== "") {
     bakery.innerHTML = bakeryName.value;
-    promptWindow.classList.add("invisible");
-    background.classList.add("invisible");
+    closePrompt();
+    localStorage.setItem("storedName", bakeryName.value);
   }
 });
 
@@ -44,8 +50,8 @@ const confirmButton = document.querySelector(".confirm");
 confirmButton.addEventListener("click", function () {
   if (bakeryName.value !== "") {
     bakery.innerHTML = bakeryName.value;
-    promptWindow.classList.add("invisible");
-    background.classList.add("invisible");
+    closePrompt();
+    localStorage.setItem("storedName", bakeryName.value);
   }
 });
 
@@ -53,10 +59,7 @@ confirmButton.addEventListener("click", function () {
 const cancelButton = document.querySelector(".cancel");
 
 //Appuyer sur le bouton ferme le prompt
-cancelButton.addEventListener("click", function () {
-  promptWindow.classList.add("invisible");
-  background.classList.add("invisible");
-});
+cancelButton.addEventListener("click", closePrompt);
 
 //Filtre qui floute l'arrière-plan du prompt
 const background = document.querySelector(".background");
@@ -90,14 +93,18 @@ const chefNb = document.querySelector("#chefnb");
 const upgrade1Cost = document.querySelector("#upgrade1cost");
 const upgrade2Cost = document.querySelector("#upgrade2cost");
 const upgrade3Cost = document.querySelector("#upgrade3cost");
+const curseurCost = document.querySelector("#curseurcost");
+const commisCost = document.querySelector("#commiscost");
+const patissierCost = document.querySelector("#patissiercost");
+const chefCost = document.querySelector("#chefcost");
 
 let score = 0;
 let clicValue = 1;
 let updatePrice = 10;
 let curseurNumber = 0;
-let commisValue = 1;
-let patissierValue = 1;
-let chefValue = 1;
+let commisValue = 10;
+let patissierValue = 10;
+let chefValue = 10;
 let commisPrice = 50;
 let patissierPrice = 50;
 let chefPrice = 50;
@@ -136,7 +143,8 @@ function curseurIncrease() {
 }
 
 function curseurValue() {
-  curseurInfo.innerHTML = `  Un clic rapporte ${clicValue} prix: ${updatePrice}   `;
+  curseurInfo.innerHTML = `  Un clic rapporte ${clicValue}`;
+  curseurCost.innerHTML = ` Prix: ${updatePrice}`;
   curseurNb.innerHTML = ` ${curseurNumber}`;
 }
 
@@ -148,9 +156,14 @@ function mutltiplicateurEnabler() {
   }
 }
 
+const curseurRestart = () => {
+  curseurValue();
+  mutltiplicateurEnabler();
+};
 //----------------------------------------------------------------Code commis
 function commisName() {
-  commisInfo.innerHTML = `Cuisine ${commisValue} choco/s. prix: ${commisPrice} `;
+  commisInfo.innerHTML = `Cuisine ${commisValue} choco/s.`;
+  commisCost.innerHTML = `Prix: ${commisPrice}`;
   commisNb.innerHTML = `${commisNumber}`;
 }
 
@@ -158,10 +171,6 @@ function commisWorks() {
   score -= commisPrice;
   commisPrice = commisPrice * 2;
   commisNumber += 1;
-  commisName();
-  setInterval(() => {
-    score += commisValue;
-  }, 1000);
 }
 
 function commisEnabler() {
@@ -171,11 +180,22 @@ function commisEnabler() {
     commis.disabled = true;
   }
 }
+
+const commisRestart = () => {
+  commisEnabler();
+  commisName();
+  for (let i = 0; i < commisNumber; i++) {
+    setInterval(() => {
+      score += commisValue;
+    }, 1000);
+  }
+};
 //---------------------------------------------------------------------- Fin Commis
 
 // ----------------------------------------------------------------------patissier
 function patissierName() {
-  patissierInfo.innerHTML = ` Cuisine ${patissierValue}choco/s. prix:${patissierPrice} `;
+  patissierInfo.innerHTML = `Cuisine ${patissierValue} choco/s.`;
+  patissierCost.innerHTML = `Prix: ${patissierPrice}`;
   patissierNb.innerHTML = `${patissierNumber}`;
 }
 function patissierEnabler() {
@@ -190,16 +210,13 @@ function patissierWorks() {
   score -= patissierPrice;
   patissierPrice = patissierPrice * 2;
   patissierNumber += 1;
-  patissierName();
-  setInterval(() => {
-    score = score + patissierValue;
-  }, 1000);
 }
 //---------------------------------------------------------------------------- fin Patissier
 
 //-------------------------------------------------------------------------------- Chef
 function chefName() {
-  chefInfo.innerHTML = `Cuisine ${chefValue} choco/s. prix:${chefPrice} `;
+  chefInfo.innerHTML = `Cuisine ${chefValue} choco/s.`;
+  chefCost.innerHTML = `Prix: ${chefPrice}`;
   chefNb.innerHTML = `${chefNumber}`;
 }
 
@@ -207,10 +224,6 @@ function chefWorks() {
   score -= chefPrice;
   chefPrice = chefPrice * 2;
   chefNumber += +1;
-  chefName();
-  setInterval(() => {
-    score = score + chefValue;
-  }, 1000);
 }
 function chefEnabler() {
   if (score >= chefPrice) {
@@ -219,20 +232,28 @@ function chefEnabler() {
     chef.disabled = true;
   }
 }
+
+const chefRestart = () => {
+  chefEnabler();
+  chefName();
+  for (let i = 0; i < chefNumber; i++) {
+    setInterval(() => {
+      score = score + chefValue;
+    }, 1000);
+  }
+};
+
 // ----------------------------------------------------------------------------fin du chef
 
 //---------------------------------------------------------------------------------upgrade 1
-
 function upgrade1Name() {
-  upgrade1Cost.innerHTML = `prix: ${upgrade1Price} `;
+  upgrade1Cost.innerHTML = ` ${upgrade1Price} `;
 }
-
 function upgradecommis() {
   score -= upgrade1Price;
   commisValue += 1;
   upgrade1Price = upgrade1Price * 2;
 }
-
 function upgrade1Enabler() {
   if (score >= upgrade1Price && commisNumber >= 1) {
     upgrade1.disabled = false;
@@ -241,11 +262,15 @@ function upgrade1Enabler() {
   }
 }
 
+const upgrade1Restart = () => {
+  upgrade1Name();
+  upgrade1Enabler();
+};
 //-------------------------------------------------------------------------------------fin upgrade 1
 //---------------------------------------------------------------------------------------upgrade2
 
 function upgrade2Name() {
-  upgrade2Cost.innerHTML = ` prix: ${upgrade2Price} `;
+  upgrade2Cost.innerHTML = ` ${upgrade2Price} `;
 }
 function upgradepatissier() {
   score -= upgrade2Price;
@@ -261,17 +286,20 @@ function upgrade2Enabler() {
   }
 }
 
+const upgrade2Restart = () => {
+  upgrade2Name();
+  upgrade2Enabler();
+};
 //------------------------------------------------------------------------------------fin de l'upgrade 2
 //----------------------------------------------------------------------------------- upgrade 3
 upgrade3Name();
 function upgrade3Name() {
-  upgrade3Cost.innerHTML = ` prix ${upgrade3Price} `;
+  upgrade3Cost.innerHTML = `  ${upgrade3Price} `;
 }
 function upgradechef() {
   score -= upgrade3Price;
   chefValue += 1;
   upgrade3Price = upgrade3Price * 2;
-  refreshValue();
 }
 function upgrade3Enabler() {
   if (score >= upgrade3Price && chefNumber >= 1) {
@@ -281,10 +309,11 @@ function upgrade3Enabler() {
   }
 }
 
+const upgrade3Restart = () => {
+  upgrade3Name();
+  upgrade3Enabler();
+};
 //----------------------------------------------------------------------------------------Fin upgrade 3
-setInterval(() => refreshValue(), 50);
-setInterval(() => EnablerAll(), 50);
-
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
 function EnablerAll() {
   mutltiplicateurEnabler();
@@ -295,7 +324,20 @@ function EnablerAll() {
   upgrade2Enabler();
   upgrade3Enabler();
 }
+setInterval(() => EnablerAll(), 1);
 //------------------------------------------------------------------------------Check toute les value des boutons
+function refeshScore() {
+  score =
+    score +
+    Math.trunc(
+      (patissierValue * patissierNumber +
+        chefValue * chefNumber +
+        commisValue * commisNumber) /
+        10
+    );
+}
+setInterval(() => refeshScore(), 100);
+//
 function refreshValue() {
   compteurScore();
   curseurValue();
@@ -306,15 +348,42 @@ function refreshValue() {
   upgrade2Name();
   upgrade3Name();
 }
+setInterval(() => refreshValue(), 1);
+//active et desactive les boutons
+function setStyle(button, disabled) {
+  if (disabled) {
+    button.classList.add("disabled");
+  } else {
+    button.classList.remove("disabled");
+  }
+}
+function buttonStyle() {
+  setStyle(commis, commis.disabled);
+  setStyle(patissier, patissier.disabled);
+  setStyle(chef, chef.disabled);
+  setStyle(curseur, curseur.disabled);
+  setStyle(upgrade1, upgrade1.disabled);
+  setStyle(upgrade2, upgrade2.disabled);
+  setStyle(upgrade3, upgrade3.disabled);
+}
 
-refreshValue();
-EnablerAll();
-commisName();
-patissierName();
-chefName();
-upgrade1Name();
-upgrade2Name();
-upgrade3Name();
+setInterval(() => buttonStyle(), 50);
+//--------------------------------------------------------------changer les images
+function changePicture() {
+  if (commisValue >= 11) {
+    document.getElementById("commisPicture").src =
+      "/Maquettes/apprentis-upgrade.png";
+  }
+  if (patissierValue >= 11) {
+    document.getElementById("patissierPicture").src =
+      "/Maquettes/patissier-upgrade.png";
+  }
+  if (chefValue >= 11) {
+    document.getElementById("chefPicture").src = "/Maquettes/chef-upgrade.png";
+  }
+}
+
+setInterval(() => changePicture(), 1);
 
 //--------------------------------------------------------------------------------------Event
 clic.addEventListener("click", scoreIncrease);
