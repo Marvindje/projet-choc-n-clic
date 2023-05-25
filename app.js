@@ -317,6 +317,8 @@ const upgrade3Restart = () => {
 const upgradeSound = new Audio("./Maquettes/microwave bell.mp3");
 
 upgrade1.addEventListener("click", () => upgradeSound.play());
+upgrade2.addEventListener("click", () => upgradeSound.play());
+upgrade3.addEventListener("click", () => upgradeSound.play());
 
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
 function EnablerAll() {
