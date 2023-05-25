@@ -63,7 +63,7 @@ p {
 
 /************** NAVBAR ******************************/
 
-navbar {
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -72,12 +72,12 @@ navbar {
   overflow: hidden;
 }
 
-navbar .logo img {
+nav .logo img {
   height: 40px;
   margin-left: 0.7em;
 }
 
-navbar .help {
+nav .help {
   all: unset;
   cursor: pointer;
   background: var(--main-color);
@@ -93,7 +93,7 @@ navbar .help {
   margin-right: 0.5em;
 }
 
-navbar .help:hover {
+nav .help:hover {
   background: var(--choco-shade);
   color: var(--main-color);
 }
@@ -448,8 +448,13 @@ footer {
   align-items: center;
   font-size: 0.7em;
 }
+@media screen and (min-width: 769px) {
+  .upgrade{
+    width: 65%;
+}
+}
 
-@media screen and (min-width: 800px) {
+@media screen and (min-width: 969px) {
   .container {
     flex-direction: row;
   }
@@ -476,17 +481,17 @@ footer {
   }
 
   .upgrade {
-    width: 70%;
-    height: 30%;
+    width: 85%;
+    height: 20%;
     margin-top: 3%;
     background: var(--choco-shade);
   }
 
   .worker {
-    height: 70%;
+    height: 75%;
     width: 95%;
     background: var(--choco-shade);
-    margin: 2%;
+    margin: 2.5%;
   }
 
   .worker button {

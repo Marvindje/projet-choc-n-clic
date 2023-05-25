@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" >
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+    <link rel="stylesheet" href="style.css" >
     <title>Choc'n Clic</title>
   </head>
   <body>
     <!-- navbar -->
-    <navbar>
+    <nav>
       <a class="logo">
-        <img src="./Maquettes/logo-choc-n-clic.png" alt="logo" />
+        <img src="./Maquettes/logo-choc-n-clic.png" alt="logo" >
       </a>
       <h1>Choc'n clic</h1>
 
@@ -23,7 +23,7 @@
           <h4>Le jeu est très simple :</h4>
           <p>
             Préparez le plus de chocolatines possible en cliquant sur ou en
-            touchant la chocolatine géante le plus rapidement possible. <br />
+            touchant la chocolatine géante le plus rapidement possible. <br>
             Dès que vous avez suffisamment de chocolatines, allez à la boutique
             et utilisez-les pour acheter des améliorations et cuisiner encore
             plus rapidement !
@@ -38,11 +38,8 @@
           </a>
         </div>
       </div>
-    </navbar>
-    <!-- fin de la nav bar -->
-    <!------------------------------- section -------------------------------------------->
-    <section class="container">
-      <!------------------------------- premiere bloc ------------------------------->
+    </nav>
+    <div class="container">
       <div class="window">
         <div class="background"></div>
         <div class="prompt">
@@ -52,7 +49,7 @@
             id="bakeryName"
             value="Wilder's Bakery"
             maxlength="40"
-          />
+          >
           <div class="buttonDisplay">
             <button class="confirm">✔️</button>
             <button class="cancel">❌</button>
@@ -61,91 +58,77 @@
         <div class="bakery">Wilder's bakery</div>
         <div id="compteur">0 Chocos</div>
         <button id="clic">
-          <img src="./Maquettes/chocolatine-clickers.png" alt="" />
+          <img src="./Maquettes/chocolatine-clickers.png" alt="" >
         </button>
       </div>
-      <!----------------------------------- deuxieme bloc ------------------------------->
       <div class="shop">
-        <!-- ---------- premiere div du second bloc  ----------- -->
         <div class="upgrade">
           <button id="upgrade1">
-            <!-- <p id="name1upgrade">upgrade</p> -->
-            <p id="upgrade1cost"></p>
+            <span id="upgrade1cost"></span>
           </button>
           <button id="upgrade2">
-            <!-- <p id="name2upgrade">upgrade</p> -->
-            <p id="upgrade2cost"></p>
+            <span id="upgrade2cost"></span>
           </button>
           <button id="upgrade3">
-            <!-- <p id="name3upgrade">upgrade</p> -->
-            <p id="upgrade3cost"></p>
+            <span id="upgrade3cost"></span>
           </button>
         </div>
-        <!-- ---------- deuxieme div  second bloc  ----------- -->
         <div class="worker">
           <button id="curseur">
             <img
               id="hand"
               src="./Maquettes/curseur.png"
-              width=""
-              height=""
               alt=""
-            />
-            <div class="centerbutton">
-              <p class="titlebutton">Curseur</p>
-              <p id="curseurinfo"></p>
-              <p id="curseurcost"></p>
-            </div>
-            <p id="curseurnb"></p>
+            >
+            <span class="centerbutton">
+              <span class="titlebutton">Curseur</span>
+              <span id="curseurinfo"></span>
+              <span id="curseurcost"></span>
+            </span>
+            <span id="curseurnb"></span>
           </button>
           <button id="commis">
             <img
               id="commisPicture"
               src="./Maquettes/Apprentis.png"
-              width=""
-              height=""
               alt=""
-            />
-            <div class="centerbutton">
-              <p class="titlebutton">Commis</p>
-              <p id="commisinfo"></p>
-              <p id="commiscost"></p>
-            </div>
-            <p id="commisnb"></p>
+            >
+            <span class="centerbutton">
+              <span class="titlebutton">Commis</span>
+              <span id="commisinfo"></span>
+              <span id="commiscost"></span>
+            </span>
+            <span id="commisnb"></span>
           </button>
           <button id="patissier">
             <img
               id="patissierPicture"
               src="./Maquettes/patissier.png"
-              width=""
-              height=""
               alt=""
-            />
-            <div class="centerbutton">
-              <p class="titlebutton">Patissier</p>
-              <p id="patissierinfo"></p>
-              <p id="patissiercost"></p>
-            </div>
-            <p id="patissiernb"></p>
+            >
+            <span class="centerbutton">
+              <span class="titlebutton">Patissier</span>
+              <span id="patissierinfo"></span>
+              <span id="patissiercost"></span>
+            </span>
+            <span id="patissiernb"></span>
           </button>
           <button id="chef">
             <img
               id="chefPicture"
               src="./Maquettes/chef.png"
-              width=""
-              height=""
               alt=""
-            />
-            <div class="centerbutton">
-              <p class="titlebutton">Chef</p>
-              <p id="chefinfo"></p>
-              <p id="chefcost"></p>
-            </div>
-            <p id="chefnb"></p>
+            >
+            <span class="centerbutton">
+              <span class="titlebutton">Chef</span>
+              <span id="chefinfo"></span>
+              <span id="chefcost"></span>
+            </span>
+            <span id="chefnb"></span>
           </button>
         </div>
       </div>
-    </section>
+    </div>
     <footer>
       <div class="footer-bottom">
         copyright &copy; Wilders, 2023, designed by awesome Wilders
