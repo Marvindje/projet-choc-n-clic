@@ -328,12 +328,20 @@ navbar .help:hover {
   border: none;
   margin: auto;
   cursor: pointer;
+  transition: all 0.5s ease;
+  /* transform: scale(1); */
   transition: transform 0.2s ease;
 }
 
 .window #clic:active {
   transform: scale(0.8, 1);
+  filter: brightness(120%);
 }
+
+/* .window #clic:hover {
+  transform: scale(1.25);
+  filter: brightness(120%);
+} */
 
 #clic img {
   width: 100%;
@@ -432,10 +440,16 @@ navbar .help:hover {
   height: 80%;
   border: none;
   border-radius: 15px;
+  transition: transform 0.2s ease;
+}
+
+.upgrade button:active {
+  transform: scale(0.8);
 }
 
 .upgrade button.disabled {
   opacity: 0.4;
+  transform: none;
 }
 #upgrade1 {
   background-image: url(./Maquettes/upgrade-1.png);
@@ -497,9 +511,16 @@ navbar .help:hover {
 .worker img {
   margin-left: 1em;
   border: none;
+  transition: transform 0.2s ease;
 }
+
+.worker button:active {
+  transform: scale(0.8);
+}
+
 .worker button.disabled {
   opacity: 0.5;
+  transform: none;
 }
 
 .worker img {

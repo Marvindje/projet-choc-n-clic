@@ -4,6 +4,7 @@ function togglePopup() {
   let popup = document.querySelector("#popup-overlay");
   popup.classList.toggle("open");
 }
+
 const chocoSound = document.querySelector("#clic");
 const audioPlay = new Audio("/Maquettes/chocosound.mp3");
 
