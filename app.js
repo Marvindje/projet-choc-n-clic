@@ -1,5 +1,4 @@
-//------------------------------------------------laurene___//
-
+//------------------------------------------------laurene
 function togglePopup() {
   let popup = document.querySelector("#popup-overlay");
   popup.classList.toggle("open");
@@ -13,6 +12,7 @@ chocoSound.addEventListener("click", () => {
 });
 
 //--------------------------------- killian --------------------------------//
+
 //Nom de la boulangerie
 const bakery = document.querySelector(".bakery");
 
@@ -67,10 +67,7 @@ const background = document.querySelector(".background");
 background.classList.add("invisible");
 
 //Quand on clique sur l'arrière-plan on ferme le prompt
-background.addEventListener("click", function () {
-  promptWindow.classList.add("invisible");
-  background.classList.add("invisible");
-});
+background.addEventListener("click", closePrompt);
 
 //----------------------------Cedric-------------------------------------------//
 
@@ -395,3 +392,96 @@ chef.addEventListener("click", chefWorks);
 upgrade1.addEventListener("click", upgradecommis);
 upgrade2.addEventListener("click", upgradepatissier);
 upgrade3.addEventListener("click", upgradechef);
+
+//--------------------------------------------------- Local Storage ------------------------------//
+
+setInterval(() => {
+  localStorage.setItem("stScore", score);
+  localStorage.setItem("stClic", clicValue);
+  localStorage.setItem("stUDPrice", updatePrice);
+  localStorage.setItem("stCurseurNumber", curseurNumber);
+  localStorage.setItem("stCommisValue", commisValue);
+  localStorage.setItem("stPatissierValue", patissierValue);
+  localStorage.setItem("stChefValue", chefValue);
+  localStorage.setItem("stCommisPrice", commisPrice);
+  localStorage.setItem("stPatissierPrice", patissierPrice);
+  localStorage.setItem("stChefPrice", chefPrice);
+  localStorage.setItem("stUG1Price", upgrade1Price);
+  localStorage.setItem("stUG2Price", upgrade2Price);
+  localStorage.setItem("stUG3Price", upgrade3Price);
+  localStorage.setItem("stCommisNumber", commisNumber);
+  localStorage.setItem("stPatissierNumber", patissierNumber);
+  localStorage.setItem("stChefNumber", chefNumber);
+}, 1000);
+
+if (localStorage.getItem("storedName")) {
+  bakery.innerHTML = localStorage.getItem("storedName");
+}
+
+if (localStorage.getItem("stScore")) {
+  score = parseInt(localStorage.getItem("stScore"));
+}
+
+if (localStorage.getItem("stUDPrice")) {
+  updatePrice = parseInt(localStorage.getItem("stUDPrice"));
+}
+
+if (localStorage.getItem("stCurseurNumber")) {
+  curseurNumber = parseInt(localStorage.getItem("stCurseurNumber"));
+}
+
+if (localStorage.getItem("stCommisPrice")) {
+  commisPrice = parseInt(localStorage.getItem("stCommisPrice"));
+}
+
+if (localStorage.getItem("stPatissierPrice")) {
+  patissierPrice = parseInt(localStorage.getItem("stPatissierPrice"));
+}
+
+if (localStorage.getItem("stChefPrice")) {
+  chefPrice = parseInt(localStorage.getItem("stChefPrice"));
+}
+
+if (localStorage.getItem("stUG1Price")) {
+  upgrade1Price = parseInt(localStorage.getItem("stUG1Price"));
+}
+
+if (localStorage.getItem("stUG2Price")) {
+  upgrade2Price = parseInt(localStorage.getItem("stUG2Price"));
+}
+
+if (localStorage.getItem("stUG3Price")) {
+  upgrade3Price = parseInt(localStorage.getItem("stUG3Price"));
+}
+
+if (localStorage.getItem("stCommisNumber")) {
+  commisNumber = parseInt(localStorage.getItem("stCommisNumber"));
+}
+
+if (localStorage.getItem("stPatissierNumber")) {
+  patissierNumber = parseInt(localStorage.getItem("stPatissierNumber"));
+}
+
+if (localStorage.getItem("stChefNumber")) {
+  chefNumber = parseInt(localStorage.getItem("stChefNumber"));
+}
+
+if (localStorage.getItem("stClic")) {
+  clicValue = parseInt(localStorage.getItem("stClic"));
+}
+
+if (localStorage.getItem("stCommisValue")) {
+  commisValue = parseInt(localStorage.getItem("stCommisValue"));
+}
+
+if (localStorage.getItem("stPatissierValue")) {
+  patissierValue = parseInt(localStorage.getItem("stPatissierValue"));
+}
+
+if (localStorage.getItem("stChefValue")) {
+  chefValue = parseInt(localStorage.getItem("stChefValue"));
+}
+
+if (localStorage.getItem("stClic")) {
+  clicValue = parseInt(localStorage.getItem("stClic"));
+}
