@@ -1,8 +1,15 @@
-//------------------------------------------------laurene
+//------------------------------------------------laurene___//
 function togglePopup() {
   let popup = document.querySelector("#popup-overlay");
   popup.classList.toggle("open");
 }
+const chocoSound = document.querySelector("#clic");
+const audioPlay = new Audio("/Maquettes/chocosound.mp3");
+
+chocoSound.addEventListener("click", () => {
+  audioPlay.play();
+});
+
 //--------------------------------- killian --------------------------------//
 
 //Nom de la boulangerie

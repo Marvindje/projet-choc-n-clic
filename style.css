@@ -216,6 +216,11 @@ navbar .help:hover {
   border: none;
   margin: auto;
   cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.window #clic:active{
+  transform: scale(0.8, 1);
 }
 
 #clic img {
@@ -320,7 +325,13 @@ navbar .help:hover {
   background: var(--choco-shade);
   color: #e9e9e9;
   font-family: var(--text);
+  transition: transform 0.2s ease;
 }
+
+.worker button:active{
+  transform: scale(0.8);
+}
+
 .worker img {
   margin-left: 1em;
 }
