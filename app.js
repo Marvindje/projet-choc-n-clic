@@ -379,11 +379,11 @@ function changePicture() {
     document.getElementById("commisPicture").src =
       "/Maquettes/apprentis-upgrade.png";
   }
-  if (patissierValue >= 11) {
+  if (patissierValue >= 16) {
     document.getElementById("patissierPicture").src =
       "/Maquettes/patissier-upgrade.png";
   }
-  if (chefValue >= 11) {
+  if (chefValue >= 21) {
     document.getElementById("chefPicture").src = "/Maquettes/chef-upgrade.png";
   }
 }
