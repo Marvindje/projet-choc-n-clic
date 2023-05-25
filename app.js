@@ -1,4 +1,5 @@
 //------------------------------------------------laurene___//
+
 function togglePopup() {
   let popup = document.querySelector("#popup-overlay");
   popup.classList.toggle("open");
@@ -11,7 +12,6 @@ chocoSound.addEventListener("click", () => {
 });
 
 //--------------------------------- killian --------------------------------//
-
 //Nom de la boulangerie
 const bakery = document.querySelector(".bakery");
 
