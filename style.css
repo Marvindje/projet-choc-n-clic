@@ -222,6 +222,10 @@ navbar .help:hover {
   transform: scale(1);
 }
 
+.window #clic:active {
+  transform: scale(0.8, 1);
+}
+
 .window #clic:hover {
   transform: scale(1.25);
   filter: brightness(120%);
