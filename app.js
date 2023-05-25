@@ -312,6 +312,12 @@ const upgrade3Restart = () => {
   upgrade3Enabler();
 };
 //----------------------------------------------------------------------------------------Fin upgrade 3
+//-------------------------- Sons -----------------------//
+
+const upgradeSound = new Audio("./Maquettes/microwave bell.mp3");
+
+upgrade1.addEventListener("click", () => upgradeSound.play());
+
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
 function EnablerAll() {
   mutltiplicateurEnabler();
