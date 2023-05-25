@@ -190,10 +190,10 @@ navbar .help:hover {
 }
 
 .window .bakery {
+  height: 20%;
   font-family: var(--main-title);
   font-size: 3em;
   color: var(--text-color);
-  /* width: 80vw; */
   text-align: center;
   margin-top: 0.5em;
   cursor: pointer;
@@ -205,6 +205,7 @@ navbar .help:hover {
 }
 
 #compteur {
+  height: 20%;
   font-family: var(--main-title);
   font-size: 2em;
   color: var(--dark-yellow-choco);
@@ -212,6 +213,8 @@ navbar .help:hover {
 }
 
 .window #clic {
+  height: 40%;
+  width: 35%;
   padding: 0;
   background: none;
   border: none;
@@ -227,8 +230,8 @@ navbar .help:hover {
 }
 
 #clic img {
-  width: 10em;
-  height: 10em;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
 }
 
