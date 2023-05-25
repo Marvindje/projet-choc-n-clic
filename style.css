@@ -1,0 +1,553 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background: var(--background-color);
+  font-family: var(--text);
+  color: var(--text-color);
+  font-size: 100%;
+}
+
+:root {
+  --main-color: #2e294e;
+  --yellow-choco: #f5a72d;
+  --dark-yellow-choco: #a66203;
+  --choco-shade: linear-gradient(
+    180deg,
+    #f5a72d 0%,
+    #e49a26 43.23%,
+    #a66203 96.35%,
+    #a66203 99.97%,
+    rgba(189, 118, 15, 0.722453) 99.98%,
+    rgba(245, 167, 45, 0.03125) 99.99%,
+    #a66203 100%
+  );
+  --background-color: linear-gradient(180deg, #2e294e 0%, #43397d 100%);
+  --text-color: #e9e9e9;
+
+  --main-title: "Lobster", cursive;
+  --text: "Poppins", sans-serif;
+}
+
+h1 {
+  font-family: var(--main-title);
+  font-size: 3em;
+  color: var(--main-color);
+}
+
+h2 {
+  font-family: var(--main-title);
+  font-size: 3.5em;
+  padding: 30px;
+  color: var(--text-color);
+}
+
+p {
+  font-size: 1em;
+  color: var(--text-color);
+}
+
+/************** NAVBAR ******************************/
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 7%;
+  background: var(--choco-shade);
+  overflow: hidden;
+}
+
+nav .logo img {
+  height: 40px;
+  margin-left: 0.7em;
+}
+
+nav .help {
+  all: unset;
+  cursor: pointer;
+  background: var(--main-color);
+  border: 0;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  color: var(--yellow-choco);
+  font-family: var(--main-title);
+  font-size: 1.8em;
+  transition: 300ms;
+  text-align: center;
+  margin-right: 0.5em;
+}
+
+nav .help:hover {
+  background: var(--choco-shade);
+  color: var(--main-color);
+}
+
+#popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 90;
+  display: none;
+  animation: fadeIn 1s;
+}
+
+#popup-overlay.open {
+  display: block;
+}
+
+.popup-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-width: 70vw;
+  height: 80vh;
+  background: var(--main-color);
+  border-radius: 6px;
+  position: absolute;
+  z-index: 100;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -18%);
+}
+
+.popup-content p {
+  font-family: var(--text);
+  color: var(--yellow-choco);
+  font-size: 1rem;
+  margin: 30px;
+  line-height: 2;
+}
+
+.popup-content h3 {
+  font-family: var(--main-title);
+  font-size: 2.5em;
+  margin: 5px;
+}
+
+.popup-content h4 {
+  text-align: center;
+  font-family: var(--text);
+  color: var(--yellow-choco);
+  font-size: 2rem;
+  margin: 5px;
+}
+
+.popup-exit {
+  text-decoration: none;
+  font-family: var(--text);
+  font-size: 2em;
+  color: var(--yellow-choco);
+  position: absolute;
+  right: 13px;
+  top: 0px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 90%;
+  width: 100%;
+}
+
+/*************** SECTION WINDOW *******************************/
+
+.window {
+  height: 45%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.window .bakery {
+  font-family: var(--main-title);
+  font-size: 3em;
+  color: var(--text-color);
+  text-align: center;
+  margin-top: 0.5em;
+  cursor: pointer;
+}
+
+.window .bakery:hover {
+  color: var(--yellow-choco);
+  text-shadow: var(--yellow-choco) 0px 0px 44px;
+}
+
+#compteur {
+  font-family: var(--main-title);
+  font-size: 2em;
+  color: var(--dark-yellow-choco);
+  text-align: center;
+}
+
+.window #clic {
+  height: 40%;
+  width: 35%;
+  padding: 0;
+  background: none;
+  border: none;
+  margin: auto;
+  cursor: pointer;
+  transition: all 0.5s ease;
+  /* transform: scale(1); */
+  transition: transform 0.2s ease;
+}
+
+.window #clic:active {
+  transform: scale(0.8, 1);
+  filter: brightness(120%);
+}
+
+/* .window #clic:hover {
+  transform: scale(1.25);
+  filter: brightness(120%);
+} */
+
+#clic img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/**************************** PROMPT ****************************/
+
+.prompt {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  height: 150px;
+  width: 90%;
+  border-radius: 15px;
+  gap: 10px;
+  background: var(--main-color);
+  animation: fadeIn 1s;
+}
+
+.invisible {
+  display: none;
+}
+
+.prompt #questionBlock {
+  text-align: center;
+  font-family: var(--text);
+  color: var(--yellow-choco);
+  width: 85%;
+  border-radius: 15px;
+}
+
+.prompt #bakeryName {
+  text-align: center;
+  width: 70%;
+  font-family: var(--text);
+}
+
+.buttonDisplay {
+  width: 40%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttonDisplay .confirm {
+  width: 50px;
+}
+
+.buttonDisplay .cancel {
+  width: 50px;
+}
+
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 90;
+  animation: fadeIn 1s;
+}
+
+/************************************* deuxieme bloc  **************************************************/
+
+.shop {
+  height: 55%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/****************************** Upgrade */
+.upgrade {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--yellow-choco);
+  border-radius: 15px;
+  width: 90%;
+  height: 20%;
+}
+.upgrade button {
+  position: relative;
+  color: var(--text-color);
+  font-family: var(--main-title);
+  width: 20%;
+  height: 80%;
+  border: none;
+  border-radius: 15px;
+  transition: transform 0.2s ease;
+}
+
+.upgrade button:active {
+  transform: scale(0.8);
+}
+
+.upgrade button.disabled {
+  opacity: 0.4;
+  transform: none;
+}
+#upgrade1 {
+  background-image: url(./Maquettes/upgrade-1.png);
+  background-size: 100% 100%;
+}
+#upgrade1cost {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+#upgrade2 {
+  background-image: url(/Maquettes/Upgrade-2.png);
+  background-size: 100% 100%;
+}
+#upgrade2cost {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+#upgrade3 {
+  background-image: url(/Maquettes/uppgrade-3.png);
+  background-size: 100% 100%;
+}
+#upgrade3cost {
+  position: absolute;
+  bottom: 0;
+  left: 10%;
+}
+
+/****************************** Worker */
+.worker {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.5%;
+  width: 100%;
+  border-radius: 15px;
+  align-items: center;
+}
+.worker button {
+  width: 95%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 20%;
+  border-radius: 15px;
+  background: var(--choco-shade);
+  color: #e9e9e9;
+  font-family: var(--text);
+  border: none;
+  transition: transform 0.2s ease;
+}
+
+.worker button:active {
+  transform: scale(0.8);
+}
+
+.worker button.disabled {
+  opacity: 0.5;
+  transform: none;
+}
+
+.worker img {
+  height: 80%;
+}
+#hand {
+  height: 50%;
+}
+.centerbutton {
+  display: flex;
+  flex-direction: column;
+  font-size: 1.8vh;
+}
+
+.titlebutton {
+  font-family: var(--main-title);
+}
+#curseurnb {
+  font-family: var(--main-title);
+  font-size: large;
+}
+#commisnb {
+  font-family: var(--main-title);
+  font-size: large;
+}
+#patissiernb {
+  font-family: var(--main-title);
+  font-size: large;
+}
+#chefnb {
+  font-family: var(--main-title);
+  font-size: large;
+}
+/******************* FOOTER ****************************/
+
+footer {
+  position: fixed;
+  bottom: 0;
+  background: var(--choco-shade);
+  width: 100%;
+  height: 3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.7em;
+}
+@media screen and (min-width: 769px) {
+  .upgrade{
+    width: 65%;
+}
+}
+
+@media screen and (min-width: 969px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .window {
+    height: 100%;
+  }
+
+  .window .bakery {
+    padding: 0.5em;
+  }
+  .window #clic {
+    height: 40%;
+    width: 60%;
+  }
+
+  .window #clic img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .shop {
+    height: 100%;
+  }
+
+  .upgrade {
+    width: 65%;
+    height: 20%;
+    margin-top: 3%;
+    background: var(--choco-shade);
+  }
+
+  .worker {
+    height: 75%;
+    width: 95%;
+    background: var(--choco-shade);
+    margin: 2.5%;
+  }
+
+  .worker button {
+    background: var(--main-color);
+  }
+
+  .prompt {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+  }
+
+  .window {
+    height: 100%;
+  }
+
+  .window .bakery {
+    padding: 0.5em;
+    font-size:200%;
+  }
+  .window #clic {
+    height: 40%;
+    width: 60%;
+  }
+
+  .window #clic img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .shop {
+    height: 100%;
+  }
+
+  .upgrade {
+    width: 65%;
+    height: 20%;
+    margin-top: 3%;
+    background: var(--choco-shade);
+  }
+
+  .worker {
+    height: 75%;
+    width: 95%;
+    background: var(--choco-shade);
+    margin: 2.5%;
+  }
+
+  .worker button {
+    background: var(--main-color);
+  }
+
+  .prompt {
+    width: 50%;
+  }
+}
