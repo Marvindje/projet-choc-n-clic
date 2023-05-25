@@ -436,11 +436,6 @@ navbar .help:hover {
   height: 80%;
   border: none;
   border-radius: 15px;
-  transition: transform 0.2s ease;
-}
-
-.worker button:active{
-  transform: scale(0.8);
 }
 
 .upgrade button.disabled {
