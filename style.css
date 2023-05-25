@@ -481,7 +481,56 @@ footer {
   }
 
   .upgrade {
-    width: 85%;
+    width: 65%;
+    height: 20%;
+    margin-top: 3%;
+    background: var(--choco-shade);
+  }
+
+  .worker {
+    height: 75%;
+    width: 95%;
+    background: var(--choco-shade);
+    margin: 2.5%;
+  }
+
+  .worker button {
+    background: var(--main-color);
+  }
+
+  .prompt {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 600px) and (orientation: landscape) {
+  .container {
+    flex-direction: row;
+  }
+
+  .window {
+    height: 100%;
+  }
+
+  .window .bakery {
+    padding: 0.5em;
+    font-size:200%;
+  }
+  .window #clic {
+    height: 40%;
+    width: 60%;
+  }
+
+  .window #clic img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .shop {
+    height: 100%;
+  }
+
+  .upgrade {
+    width: 65%;
     height: 20%;
     margin-top: 3%;
     background: var(--choco-shade);
