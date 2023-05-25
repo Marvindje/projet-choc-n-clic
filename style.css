@@ -190,7 +190,6 @@ navbar .help:hover {
 }
 
 .window .bakery {
-  height: 20%;
   font-family: var(--main-title);
   font-size: 3em;
   color: var(--text-color);
@@ -205,7 +204,6 @@ navbar .help:hover {
 }
 
 #compteur {
-  height: 20%;
   font-family: var(--main-title);
   font-size: 2em;
   color: var(--dark-yellow-choco);
