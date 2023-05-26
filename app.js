@@ -88,14 +88,15 @@ const curseurCost = document.querySelector("#curseurcost");
 const commisCost = document.querySelector("#commiscost");
 const patissierCost = document.querySelector("#patissiercost");
 const chefCost = document.querySelector("#chefcost");
+const perSeconde = document.querySelector("#perSeconde");
 
 let score = 0;
 let clicValue = 1;
 let updatePrice = 10;
 let curseurNumber = 0;
 let commisValue = 10;
-let patissierValue = 15;
-let chefValue = 20;
+let patissierValue = 30;
+let chefValue = 50;
 let commisPrice = 100;
 let patissierPrice = 200;
 let chefPrice = 300;
@@ -147,10 +148,6 @@ function mutltiplicateurEnabler() {
   }
 }
 
-const curseurRestart = () => {
-  curseurValue();
-  mutltiplicateurEnabler();
-};
 //----------------------------------------------------------------Code commis
 function commisName() {
   commisInfo.innerHTML = `Cuisine ${commisValue} choco/s.`;
@@ -172,15 +169,6 @@ function commisEnabler() {
   }
 }
 
-const commisRestart = () => {
-  commisEnabler();
-  commisName();
-  for (let i = 0; i < commisNumber; i++) {
-    setInterval(() => {
-      score += commisValue;
-    }, 1000);
-  }
-};
 //---------------------------------------------------------------------- Fin Commis
 
 // ----------------------------------------------------------------------patissier
@@ -224,16 +212,6 @@ function chefEnabler() {
   }
 }
 
-const chefRestart = () => {
-  chefEnabler();
-  chefName();
-  for (let i = 0; i < chefNumber; i++) {
-    setInterval(() => {
-      score = score + chefValue;
-    }, 1000);
-  }
-};
-
 // ----------------------------------------------------------------------------fin du chef
 
 //---------------------------------------------------------------------------------upgrade 1
@@ -242,7 +220,7 @@ function upgrade1Name() {
 }
 function upgradecommis() {
   score -= upgrade1Price;
-  commisValue += 1;
+  commisValue += 3;
   upgrade1Price = upgrade1Price * 2;
 }
 function upgrade1Enabler() {
@@ -253,10 +231,6 @@ function upgrade1Enabler() {
   }
 }
 
-const upgrade1Restart = () => {
-  upgrade1Name();
-  upgrade1Enabler();
-};
 //-------------------------------------------------------------------------------------fin upgrade 1
 //---------------------------------------------------------------------------------------upgrade2
 
@@ -265,7 +239,7 @@ function upgrade2Name() {
 }
 function upgradepatissier() {
   score -= upgrade2Price;
-  patissierValue += 1;
+  patissierValue += 5;
   upgrade2Price = upgrade2Price * 2;
 }
 
@@ -277,10 +251,6 @@ function upgrade2Enabler() {
   }
 }
 
-const upgrade2Restart = () => {
-  upgrade2Name();
-  upgrade2Enabler();
-};
 //------------------------------------------------------------------------------------fin de l'upgrade 2
 //----------------------------------------------------------------------------------- upgrade 3
 upgrade3Name();
@@ -289,7 +259,7 @@ function upgrade3Name() {
 }
 function upgradechef() {
   score -= upgrade3Price;
-  chefValue += 1;
+  chefValue += 10;
   upgrade3Price = upgrade3Price * 2;
 }
 function upgrade3Enabler() {
@@ -300,23 +270,29 @@ function upgrade3Enabler() {
   }
 }
 
-const upgrade3Restart = () => {
-  upgrade3Name();
-  upgrade3Enabler();
-};
 //----------------------------------------------------------------------------------------Fin upgrade 3
 //---------------------------------- Sons ----------------------------//
 
 const upgradeSound = new Audio("./Maquettes/microwave bell.mp3");
 
-upgrade1.addEventListener("click", () => upgradeSound.play());
-upgrade2.addEventListener("click", () => upgradeSound.play());
-upgrade3.addEventListener("click", () => upgradeSound.play());
+upgrade1.addEventListener("click", () => {
+  upgradeSound.play();
+  upgradeSound.currentTime = 0;
+});
+upgrade2.addEventListener("click", () => {
+  upgradeSound.play();
+  upgradeSound.currentTime = 0;
+});
+upgrade3.addEventListener("click", () => {
+  upgradeSound.play();
+  upgradeSound.currentTime = 0;
+});
 
 const audioPlay = new Audio("/Maquettes/chocosound.mp3");
 
 clic.addEventListener("click", () => {
   audioPlay.play();
+  audioPlay.currentTime = 0;
 });
 
 //-------------------------------------------------------------------------check toute les condition pour que les bouton s'active
@@ -331,6 +307,15 @@ function EnablerAll() {
 }
 setInterval(() => EnablerAll(), 1);
 //------------------------------------------------------------------------------Check toute les value des boutons
+function refreshRent() {
+  rent =
+    patissierValue * patissierNumber +
+    chefValue * chefNumber +
+    commisValue * commisNumber;
+  perSeconde.innerHTML = ` ${rent} chocos/s  `;
+}
+setInterval(() => refreshRent(), 1);
+
 function refeshScore() {
   score =
     score +
@@ -375,15 +360,15 @@ function buttonStyle() {
 setInterval(() => buttonStyle(), 50);
 //--------------------------------------------------------------changer les images
 function changePicture() {
-  if (commisValue >= 11) {
+  if (commisValue >= 13) {
     document.getElementById("commisPicture").src =
       "/Maquettes/apprentis-upgrade.png";
   }
-  if (patissierValue >= 16) {
+  if (patissierValue >= 35) {
     document.getElementById("patissierPicture").src =
       "/Maquettes/patissier-upgrade.png";
   }
-  if (chefValue >= 21) {
+  if (chefValue >= 60) {
     document.getElementById("chefPicture").src = "/Maquettes/chef-upgrade.png";
   }
 }

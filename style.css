@@ -134,8 +134,8 @@ nav .help:hover {
   font-family: var(--text);
   color: var(--yellow-choco);
   font-size: 1rem;
-  margin: 30px;
-  line-height: 2;
+  margin: 1% 5%;
+
 }
 
 .popup-content h3 {
@@ -143,13 +143,12 @@ nav .help:hover {
   font-size: 2.5em;
   margin: 5px;
 }
-
 .popup-content h4 {
   text-align: center;
   font-family: var(--text);
   color: var(--yellow-choco);
-  font-size: 2rem;
-  margin: 5px;
+  font-size: 1.25rem;
+  margin-bottom: 5%;
 }
 
 .popup-exit {
@@ -219,7 +218,6 @@ nav .help:hover {
   margin: auto;
   cursor: pointer;
   transition: all 0.5s ease;
-  /* transform: scale(1); */
   transition: transform 0.2s ease;
 }
 
@@ -228,15 +226,15 @@ nav .help:hover {
   filter: brightness(120%);
 }
 
-/* .window #clic:hover {
-  transform: scale(1.25);
-  filter: brightness(120%);
-} */
-
 #clic img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+}
+#perSeconde{
+  color: var(--yellow-choco);
+  font-family: var(--main-title)
+  ;
 }
 
 /**************************** PROMPT ****************************/
@@ -328,7 +326,8 @@ nav .help:hover {
   font-family: var(--main-title);
   width: 20%;
   height: 80%;
-  border: none;
+  border: outset var(--main-color);
+
   border-radius: 15px;
   transition: transform 0.2s ease;
 }
@@ -391,7 +390,6 @@ nav .help:hover {
   background: var(--choco-shade);
   color: #e9e9e9;
   font-family: var(--text);
-  border: none;
   transition: transform 0.2s ease;
 }
 
@@ -454,7 +452,78 @@ footer {
 }
 }
 
-@media screen and (min-width: 969px) {
+@media screen and (min-width: 1200px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .window {
+    height: 100%;
+  }
+  #compteur{
+    font-size: 4em;
+  }
+  #perSeconde{
+    font-size: 2.5em;
+  }
+
+  .window .bakery {
+    padding: 0.5em;
+    font-size:  4.5em;
+  }
+  .window #clic {
+    height: 40%;
+    width: 60%;
+  }
+  .popup-content p { 
+    font-size: 3rem;
+    margin: 1% 5%;
+  
+  }
+  
+  .popup-content h3 {
+
+    font-size: 4.5em;
+    margin: 5px;
+  }
+  .popup-content h4 {
+    font-size:3.25rem;
+    margin-bottom: 5%;
+  }
+  
+
+  .window #clic img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .shop {
+    height: 100%;
+  }
+
+  .upgrade {
+    width: 65%;
+    height: 20%;
+    margin-top: 3%;
+    background: var(--choco-shade);
+  }
+
+  .worker {
+    height: 75%;
+    width: 95%;
+    background: var(--choco-shade);
+    margin: 2.5%;
+  }
+
+  .worker button {
+    background: var(--main-color);
+  }
+
+  .prompt {
+    width: 50%;
+  }
+}
+@media only screen and (min-width: 600px)and (max-width : 1200px )and (orientation: landscape) {
   .container {
     flex-direction: row;
   }
@@ -465,6 +534,8 @@ footer {
 
   .window .bakery {
     padding: 0.5em;
+    font-size: 2rem;
+
   }
   .window #clic {
     height: 40%;
@@ -502,52 +573,4 @@ footer {
     width: 50%;
   }
 }
-@media only screen and (min-width: 600px) and (orientation: landscape) {
-  .container {
-    flex-direction: row;
-  }
 
-  .window {
-    height: 100%;
-  }
-
-  .window .bakery {
-    padding: 0.5em;
-    font-size:200%;
-  }
-  .window #clic {
-    height: 40%;
-    width: 60%;
-  }
-
-  .window #clic img {
-    height: 100%;
-    width: 100%;
-  }
-
-  .shop {
-    height: 100%;
-  }
-
-  .upgrade {
-    width: 65%;
-    height: 20%;
-    margin-top: 3%;
-    background: var(--choco-shade);
-  }
-
-  .worker {
-    height: 75%;
-    width: 95%;
-    background: var(--choco-shade);
-    margin: 2.5%;
-  }
-
-  .worker button {
-    background: var(--main-color);
-  }
-
-  .prompt {
-    width: 50%;
-  }
-}

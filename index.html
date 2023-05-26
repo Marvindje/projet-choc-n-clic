@@ -8,7 +8,6 @@
     <title>Choc'n Clic</title>
   </head>
   <body>
-    <!-- navbar -->
     <nav>
       <a class="logo">
         <img src="./Maquettes/logo-choc-n-clic.png" alt="logo" >
@@ -43,20 +42,21 @@
       <div class="window">
         <div class="background"></div>
         <div class="prompt">
-          <div id="questionBlock">What's the name of your bakery ?</div>
+          <div id="questionBlock">Quel est le nom de ta boulangerie ?</div>
           <input
             type="text"
             id="bakeryName"
-            value="Wilder's Bakery"
-            maxlength="40"
+            value="Choc'n Clic"
+            maxlength="20"
           >
           <div class="buttonDisplay">
             <button class="confirm">✔️</button>
             <button class="cancel">❌</button>
           </div>
         </div>
-        <div class="bakery">Wilder's bakery</div>
+        <div class="bakery">Choc'n Clic</div>
         <div id="compteur">0 Chocos</div>
+        <div id ="perSeconde"></div>
         <button id="clic">
           <img src="./Maquettes/chocolatine-clickers.png" alt="" >
         </button>
